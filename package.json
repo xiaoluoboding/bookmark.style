@@ -1,25 +1,32 @@
 {
-  "name": "nuxt3-starter",
-  "description": "A better nuxt3 starter template",
+  "name": "bookmark.style",
+  "displayName": "Bookmark Style",
+  "description": "🪄 Turn any link into a stylish web visual bookmark.",
   "private": false,
   "scripts": {
-    "dev": "nuxi dev --port 3088",
+    "dev": "nuxi dev --port 3099",
     "build": "nuxi build",
     "start": "node .output/server/index.mjs",
-    "preview": "nuxi preview",
-    "updateall": "yarn upgrade-interactive --latest"
+    "preview": "nuxi preview"
   },
   "devDependencies": {
-    "@iconify/json": "^2.1.10",
-    "@intlify/nuxt3": "^0.1.10",
+    "@iconify/json": "^2.1.21",
     "@pinia/nuxt": "^0.1.8",
-    "@vueuse/nuxt": "^7.7.0",
+    "@types/dom-to-image": "^2.6.4",
+    "@vueuse/components": "^8.2.5",
+    "@vueuse/core": "^8.2.0",
+    "@vueuse/nuxt": "^8.2.0",
     "nuxt-windicss": "^2.2.8",
-    "nuxt3": "3.0.0-27439163.9f506de",
-    "unplugin-icons": "^0.13.2",
-    "unplugin-vue-components": "^0.17.21"
+    "nuxt3": "3.0.0-27480376.fdd38f9",
+    "unplugin-icons": "^0.14.1",
+    "unplugin-vue-components": "^0.18.5"
   },
   "dependencies": {
-    "pinia": "^2.0.11"
+    "axios": "^0.26.1",
+    "copy-image-clipboard": "^2.1.2",
+    "dom-to-image": "^2.6.0",
+    "fancy-qrcode": "^0.1.0",
+    "file-saver": "^2.0.5",
+    "pinia": "^2.0.12"
   }
 }

@@ -4,12 +4,26 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
-    'Carbon:language': typeof import('~icons/carbon/language')['default']
-    'Carbon:logoGithub': typeof import('~icons/carbon/logo-github')['default']
+    'Carbon:copy': typeof import('~icons/carbon/copy')['default']
+    'Carbon:download': typeof import('~icons/carbon/download')['default']
     'Carbon:logoTwitter': typeof import('~icons/carbon/logo-twitter')['default']
-    'Carbon:moon': typeof import('~icons/carbon/moon')['default']
-    'Carbon:sun': typeof import('~icons/carbon/sun')['default']
-    'SimpleIcons:nuxtdotjs': typeof import('~icons/simple-icons/nuxtdotjs')['default']
+    'Carbon:search': typeof import('~icons/carbon/search')['default']
+    CarbonLogoGithub: typeof import('~icons/carbon/logo-github')['default']
+    CarbonMoon: typeof import('~icons/carbon/moon')['default']
+    CarbonSettings: typeof import('~icons/carbon/settings')['default']
+    CarbonSun: typeof import('~icons/carbon/sun')['default']
+    'HeroiconsOutline:checkCircle': typeof import('~icons/heroicons-outline/check-circle')['default']
+    'HeroiconsOutline:exclamation': typeof import('~icons/heroicons-outline/exclamation')['default']
+    'HeroiconsOutline:exclamationCircle': typeof import('~icons/heroicons-outline/exclamation-circle')['default']
+    'HeroiconsOutline:informationCircle': typeof import('~icons/heroicons-outline/information-circle')['default']
+    'HeroiconsSolid:check': typeof import('~icons/heroicons-solid/check')['default']
+    'HeroiconsSolid:selector': typeof import('~icons/heroicons-solid/selector')['default']
+    'HeroiconsSolid:x': typeof import('~icons/heroicons-solid/x')['default']
+    'Mdi:circle': typeof import('~icons/mdi/circle')['default']
+    'Mdi:qrcode': typeof import('~icons/mdi/qrcode')['default']
+    'Mdi:qrcodeScan': typeof import('~icons/mdi/qrcode-scan')['default']
+    MdiDockRight: typeof import('~icons/mdi/dock-right')['default']
+    MdiDockTop: typeof import('~icons/mdi/dock-top')['default']
   }
 }
 

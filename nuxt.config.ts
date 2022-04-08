@@ -4,36 +4,28 @@ import IconsResolver from 'unplugin-icons/resolver'
 
 export default defineNuxtConfig({
   meta: {
-    title: 'A Better Nuxt 3 Starter',
+    title: 'bookmark.style: stylish your web visual bookmark'
   },
   buildModules: [
     'nuxt-windicss',
     '@pinia/nuxt',
     'unplugin-icons/nuxt',
-    '@vueuse/nuxt',
-    [
-      '@intlify/nuxt3',
-      {
-        localeDir: 'locales',
-        vueI18n: {
-          locale: 'en'
-        }
-      }
-    ]
+    '@vueuse/nuxt'
   ],
-  windicss: {
-    analyze: true,
+  components: {
+    global: true,
+    dirs: ['~/components']
   },
   vite: {
     plugins: [
       ViteComponents({
         resolvers: [
           IconsResolver({
-            componentPrefix: '',
-          }),
+            componentPrefix: ''
+          })
         ],
-        dts: true,
-      }),
-    ],
-  },
+        dts: true
+      })
+    ]
+  }
 })
