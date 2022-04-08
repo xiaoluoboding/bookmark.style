@@ -1,0 +1,7 @@
+{
+  "hello": "Hello, {name}!",
+  "language": "Language",
+  "menu": {
+    "home": "Home"
+  }
+}

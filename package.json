@@ -1,0 +1,25 @@
+{
+  "name": "nuxt3-starter",
+  "description": "A better nuxt3 starter template",
+  "private": false,
+  "scripts": {
+    "dev": "nuxi dev --port 3088",
+    "build": "nuxi build",
+    "start": "node .output/server/index.mjs",
+    "preview": "nuxi preview",
+    "updateall": "yarn upgrade-interactive --latest"
+  },
+  "devDependencies": {
+    "@iconify/json": "^2.1.10",
+    "@intlify/nuxt3": "^0.1.10",
+    "@pinia/nuxt": "^0.1.8",
+    "@vueuse/nuxt": "^7.7.0",
+    "nuxt-windicss": "^2.2.8",
+    "nuxt3": "3.0.0-27439163.9f506de",
+    "unplugin-icons": "^0.13.2",
+    "unplugin-vue-components": "^0.17.21"
+  },
+  "dependencies": {
+    "pinia": "^2.0.11"
+  }
+}
