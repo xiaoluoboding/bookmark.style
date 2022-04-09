@@ -99,9 +99,9 @@
                 Background
               </figcaption>
               <figure>
-                <section class="rounded-lg flex flex-wrap gap-2" lg="gap-1">
+                <section class="rounded-lg flex flex-wrap gap-2 justify-center items-center" lg="gap-1">
                   <div
-                    class="relative w-20 h-20 rounded-lg cursor-pointer"
+                    class="relative w-16 h-16 rounded-lg cursor-pointer"
                     lg="w-12 h-12"
                     v-for="item in gradientColorList"
                     :key="item.name"
@@ -171,7 +171,7 @@
                   min="0"
                   max="128"
                   step="2"
-                  class="w-full"
+                  class="w-full range"
                   v-model="globalStore.setting.padding"
                 />
               </figure>
@@ -289,7 +289,7 @@ import { ref, reactive, computed, onMounted } from 'vue'
 import domtoimage from 'dom-to-image'
 import { copyBlobToClipboard } from 'copy-image-clipboard'
 import { saveAs } from 'file-saver'
-import { useDebounceFn } from '@vueuse/core'
+import { useDebounceFn, useMediaQuery } from '@vueuse/core'
 
 // import { isDark, toggleDark } from '@/composables/useDark'
 import { useRetinaImage } from '@/composables/useRetinaImage'
@@ -302,7 +302,7 @@ import { useGlobalStore } from '@/store/global'
 const globalStore = useGlobalStore()
 const showQRCode = ref(true)
 const isHorizontal = ref(false)
-const localBookmarkLink = ref('')
+const localBookmarkLink = ref('https://github.com/one-tab-group/bookmark.style')
 const notifyList = ref<NotifyItem[]>([])
 
 const state = reactive({
@@ -338,6 +338,8 @@ const state = reactive({
 const handleRenderBookmark = useDebounceFn((e: any) => {
   localBookmarkLink.value = e?.target?.value ?? ''
 }, 1000)
+const isMobileScreen = useMediaQuery('(max-width: 640px)')
+const isLargeScreen = useMediaQuery('(min-width: 1024px)')
 
 const gradientColorList = computed(() => {
   const angle = state.gradientAngle
@@ -406,7 +408,9 @@ const selectedBackground = computed(() => {
 
 const bookmarkBgStyle = computed(() => {
   return {
-    padding: `${globalStore.setting.padding}px`,
+    padding: isMobileScreen.value && !isLargeScreen.value
+      ? '0px'
+      : `${globalStore.setting.padding}px`,
     backgroundColor:
       Number(globalStore.setting.padding) === 0 ? 'transparent !important' : ''
   }
@@ -484,13 +488,26 @@ onMounted(() => {
 
 <style scoped>
 .range {
-  height: 1rem;
-  width: 100%;
-  cursor: pointer;
   -webkit-appearance: none;
-  overflow: hidden;
-  background-color: transparent;
-  border-radius: 12px;
+  @apply w-full h-4 cursor-pointer overflow-hidden bg-transparent rounded-md;
+}
+
+.range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  @apply bg-sky-500 rounded-full w-4 h-4;
+  @apply transition-all duration-300 ease-in-out
+  cursor: ew-resize;
+  box-shadow: 0 0 2px 0 rgba(14, 165, 233, 0.66),;
+}
+
+.range::-webkit-slider-runnable-track  {
+  -webkit-appearance: none;
+  @apply bg-slate-200 border-slate-900 border shadow-transparent;
+  @apply dark:bg-sky-700 dark:border-slate-200;
+}
+
+.range:focus {
+  outline: none;
 }
 
 .aspect-auto {
@@ -559,15 +576,20 @@ onMounted(() => {
   height: calc(100% + var(--borderWidth) * 2);
   width: calc(100% + var(--borderWidth) * 2);
   background: conic-gradient(
-    rgba(179, 132, 201, 0),
+    rgba(6, 182, 212, .66),
     rgba(14, 165, 233, 0.66),
-    rgba(179, 132, 201, 0)
+    rgba(6, 182, 212, .66)
   );
   border-radius: calc(2 * var(--borderWidth));
   z-index: -1;
   background-size: 300% 300%;
 }
-.nosie {
-  background-image: url('/noise.svg');
+
+.dark .gradient-border:after {
+  background: conic-gradient(
+    rgba(179, 132, 201, 0),
+    rgba(14, 165, 233, 0.66),
+    rgba(179, 132, 201, 0)
+  );
 }
 </style>

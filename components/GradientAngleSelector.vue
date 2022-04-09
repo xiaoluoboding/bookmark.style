@@ -21,8 +21,8 @@
               :cx="(m / 6) * 100"
               :cy="(n / 6) * 100"
               r="1"
-              class="fill-slate-800 opacity-60"
-              dark="fill-slate-50"
+              class="fill-slate-800 opacity-80"
+              dark="fill-slate-50 opacity-80"
             ></circle>
           </template>
         </template>
