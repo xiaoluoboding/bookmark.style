@@ -4,7 +4,16 @@ import IconsResolver from 'unplugin-icons/resolver'
 
 export default defineNuxtConfig({
   meta: {
-    title: 'bookmark.style: stylish your web visual bookmark'
+    title: 'bookmark.style: stylish your web visual bookmark',
+    viewport: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0',
+    description: '🪄 Turn any link into a stylish web visual bookmark, one-click to copy the beautiful web bookmark image.',
+    link: [
+      {
+        rel: "icon",
+        type: "image/*",
+        href: "/favicon.svg",
+      },
+    ],
   },
   modules: [
     'vue-plausible'

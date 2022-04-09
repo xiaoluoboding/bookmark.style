@@ -1,6 +1,6 @@
 <template>
   <div
-    class="h-full min-h-screen w-full min-w-screen bg-gradient-to-br from-light-50 to-light-300 dark:from-slate-700 dark:to-slate-900 m-0"
+    class="h-full min-h-screen w-full min-w-screen bg-gradient-to-br from-slate-200 to-slate-50 dark:from-slate-700 dark:to-slate-900 m-0"
   >
     <div class="container mx-auto px-5 lg:px-10 pb-20">
       <!-- Home Header -->
