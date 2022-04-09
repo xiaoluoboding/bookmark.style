@@ -265,15 +265,12 @@
       >
         <p class="flex items-center">
           Code with ❤️ & ☕️ By
-          <GradientLink
-            to="https://github.com/xiaoluoboding"
-            class="flex items-center"
-            ><carbon:logo-twitter class="text-sky-500" />
-            @xiaoluoboding</GradientLink
-          >
+          <GradientLink to="https://twitter.com/xiaoluoboding" class="flex items-center">
+            <carbon:logo-twitter class="text-sky-500" /> @xiaoluoboding
+          </GradientLink>
           © {{ new Date().getFullYear() }}
         </p>
-        <p>Powered by Vite & Nuxt 3 & Vercel</p>
+        <p>Powered by Vite & Nuxt 3 & Netlify</p>
       </footer>
 
       <template v-if="notifyList.length > 0">

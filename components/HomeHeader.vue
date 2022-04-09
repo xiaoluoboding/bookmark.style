@@ -6,17 +6,17 @@
 
     <div class="flex items-center justify-end gap-4">
       <button
-        class="icon-btn text-slate-900 dark:text-slate-200 !outline-none"
+        class="btn-icon !dark:bg-opacity-80 dark:hover:bg-slate-900"
         title="Toggle Dark Mode"
-        @click="(e) => toggleDark()"
+        @click="e => toggleDark()"
       >
         <carbon-moon class="w-8 h-8" v-if="isDark" />
         <carbon-sun class="w-8 h-8" v-else />
       </button>
       <a
-        class="icon-btn text-slate-900 dark:text-slate-200"
+        class="btn-icon !dark:bg-opacity-80 dark:hover:bg-slate-900"
         rel="noreferrer"
-        href="https://github.com/one-tab-group/bookmark.run"
+        href="https://github.com/one-tab-group/bookmark.style"
         target="_blank"
         title="GitHub"
       >

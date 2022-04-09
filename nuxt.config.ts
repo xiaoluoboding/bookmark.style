@@ -6,6 +6,9 @@ export default defineNuxtConfig({
   meta: {
     title: 'bookmark.style: stylish your web visual bookmark'
   },
+  modules: [
+    'vue-plausible'
+  ],
   buildModules: [
     'nuxt-windicss',
     '@pinia/nuxt',
@@ -27,5 +30,11 @@ export default defineNuxtConfig({
         dts: true
       })
     ]
+  },
+  plausible: {
+    domain: 'bookmark.style'
+  },
+  publicRuntimeConfig: {
+    PLAUSIBLE_TOKEN: process.env.PLAUSIBLE_TOKEN
   }
 })

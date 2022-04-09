@@ -32,6 +32,10 @@ export default defineConfig({
     `,
     'btn-blur':
       'backdrop-filter backdrop-blur-sm backdrop-saturate-[180%] dark:bg-opacity-33',
+    'btn-icon': `p-2 hover:bg-slate-200 dark:hover:bg-slate-800 dark:hover:bg-opacity-50
+      text-slate-900 dark:text-slate-200
+      rounded-md !outline-none transition-all duration-200 ease-in-out
+    `,
     'card-blur': 'backdrop-filter backdrop-blur-lg backdrop-saturate-[180%]'
   }
 })
