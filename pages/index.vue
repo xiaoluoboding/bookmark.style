@@ -210,7 +210,7 @@
 
             <div class="space-x-2 flex justify-center items-center">
               <button
-                class="icon-btn text-xl inline-block"
+                class="btn-icon text-xl inline-block"
                 title="$t('button.toggle_layout')"
                 @click="isHorizontal = !isHorizontal"
               >
@@ -219,7 +219,7 @@
               </button>
 
               <button
-                class="icon-btn text-xl inline-block"
+                class="btn-icon text-xl inline-block"
                 title="$t('button.show_qrcode')"
                 @click="showQRCode = !showQRCode"
               >
@@ -483,11 +483,6 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.icon-btn {
-  transition: transform 0.2s ease-in-out;
-  @apply p-2 hover:bg-slate-800 hover:bg-opacity-75 rounded-md hover:p-2;
-}
-
 .range {
   height: 1rem;
   width: 100%;
