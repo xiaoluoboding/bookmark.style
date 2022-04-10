@@ -1,6 +1,13 @@
-# Bookmark Style
-
-> 🪄 Turn any link into a stylish visual web bookmark, one-click to copy the beautiful web bookmark image.
+<p align="center">
+  <a href="https://github.com/one-tab-group/bookmark.style">
+    <img src="/public/favicon.svg" width="152">
+  </a>
+  <h3 align="center">bookmark.style</h3>
+  <br>
+  <p align="center">
+    🪄 Turn any link into a stylish visual web bookmark, one-click to copy the beautiful web bookmark image.
+  </p>
+</p>
 
 ## Concepts
 
