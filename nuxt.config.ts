@@ -4,23 +4,23 @@ import IconsResolver from 'unplugin-icons/resolver'
 
 export default defineNuxtConfig({
   meta: {
-    title: 'bookmark.style: stylish your web visual bookmark',
+    title: 'bookmark.style: stylish your visual web bookmark',
     viewport: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0',
-    description: '🪄 Turn any link into a stylish web visual bookmark, one-click to copy the beautiful web bookmark image.',
+    description: '🪄 Turn any link into a stylish visual web bookmark, one-click to copy the beautiful web bookmark image.',
     link: [ { rel: "icon", type: "image/*", href: "/favicon.svg" } ],
     meta: [
-      { property: 'og:title', content: 'bookmark.style: stylish your web visual bookmark' },
-      { property: 'og:description', content: '🪄 Turn any link into a stylish web visual bookmark, one-click to copy the beautiful web bookmark image.' },
+      { property: 'og:title', content: 'bookmark.style: stylish your visual web bookmark' },
+      { property: 'og:description', content: '🪄 Turn any link into a stylish visual web bookmark, one-click to copy the beautiful web bookmark image.' },
       { property: 'og:image', content: 'https://bookmark.style/preview.png' },
       { property: 'og:url', content: 'https://bookmark.style' },
       { property: 'og:stie_name', content: 'Bookmark Style' },
       { property: 'og:image:width', content: '1200' },
       { property: 'og:image:height', content: '900' },
-      { property: 'og:image:alt', content: '🪄 Turn any link into a stylish web visual bookmark, one-click to copy the beautiful web bookmark image.' },
+      { property: 'og:image:alt', content: '🪄 Turn any link into a stylish visual web bookmark, one-click to copy the beautiful web bookmark image.' },
       { property: 'twitter:site', content: 'Bookmark Style' },
-      { property: 'twitter:title', content: 'bookmark.style: stylish your web visual bookmark' },
+      { property: 'twitter:title', content: 'bookmark.style: stylish your visual web bookmark' },
       { property: 'twitter:card', content: 'summary_large_image' },
-      { property: 'twitter:description', content: '🪄 Turn any link into a stylish web visual bookmark, one-click to copy the beautiful web bookmark image.' },
+      { property: 'twitter:description', content: '🪄 Turn any link into a stylish visual web bookmark, one-click to copy the beautiful web bookmark image.' },
       { property: 'twitter:image:src', content: 'https://bookmark.style/preview.png' },
     ]
   },

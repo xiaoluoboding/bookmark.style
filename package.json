@@ -1,7 +1,7 @@
 {
   "name": "bookmark.style",
   "displayName": "Bookmark Style",
-  "description": "🪄 Turn any link into a stylish web visual bookmark.",
+  "description": "🪄 Turn any link into a stylish web visual bookmark, one-click to copy the beautiful web bookmark image.",
   "private": false,
   "scripts": {
     "dev": "nuxi dev --port 3099",

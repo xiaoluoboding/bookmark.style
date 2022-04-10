@@ -489,7 +489,7 @@ onMounted(() => {
 <style scoped>
 .range {
   -webkit-appearance: none;
-  @apply w-full h-4 cursor-pointer overflow-hidden bg-transparent rounded-md;
+  @apply w-full h-4 cursor-pointer overflow-hidden bg-transparent rounded-full;
 }
 
 .range::-webkit-slider-thumb {
