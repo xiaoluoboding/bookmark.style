@@ -110,12 +110,6 @@
   </figure>
 </template>
 
-<script lang="ts">
-export default {
-  name: 'VisualBookmark'
-}
-</script>
-
 <script lang="ts" setup>
 import { ref, reactive, computed, watch, onMounted } from 'vue'
 import axios from 'axios'

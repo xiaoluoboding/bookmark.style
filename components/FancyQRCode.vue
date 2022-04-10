@@ -1,12 +1,11 @@
 <template>
-  <div class="qrcode-svg" v-html="baseQRCodeSVG"></div>
+  <div class="qrcode-svg" v-html="baseQRCodeSVG" :class="{'is-dark': isDark}"></div>
 </template>
 
 <script lang="ts" setup>
-import { computed, onMounted, ref } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
 import fancyQRCode, { createQRCode, renderImage } from 'fancy-qrcode'
-
-import { isDark } from '@/composables/useDark'
+import { isDark } from "@/composables/useDark"
 
 const props = defineProps({
   /**
@@ -42,17 +41,17 @@ const baseQRCodeSVG = computed(() => {
 //   })
 // })
 
-const resImageQRCodeSVG = ref()
+// const resImageQRCodeSVG = ref()
 
-onMounted(async () => {
-  resImageQRCodeSVG.value = await fancyQRCode.renderResImage({
-    contrast: 50,
-    eyeColor: '#1af',
-    bodyColor: '#1af'
-  })
-  // eslint-disable-next-line no-console
-  // console.log(baseQRCodeSVG.value)
-})
+// onMounted(async () => {
+//   resImageQRCodeSVG.value = await fancyQRCode.renderResImage({
+//     contrast: 50,
+//     eyeColor: '#1af',
+//     bodyColor: '#1af'
+//   })
+//   // eslint-disable-next-line no-console
+//   // console.log(baseQRCodeSVG.value)
+// })
 </script>
 
 <style scoped></style>
