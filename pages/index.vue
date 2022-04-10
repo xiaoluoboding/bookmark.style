@@ -307,7 +307,7 @@ const notifyList = ref<NotifyItem[]>([])
 
 const state = reactive({
   // local state
-  bookmarkLink: 'https://github.com/',
+  bookmarkLink: 'https://github.com/one-tab-group/bookmark.style',
   isCopying: false,
   roundedCornersOption: [
     {
