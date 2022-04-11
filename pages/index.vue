@@ -2,10 +2,11 @@
   <div
     class="h-full min-h-screen w-full min-w-screen bg-gradient-to-br from-slate-200 to-slate-50 dark:from-slate-700 dark:to-slate-900 m-0"
   >
-    <div class="container mx-auto px-5 lg:px-10 pb-20">
+    <div class="container mx-auto px-5">
       <!-- Home Header -->
       <HomeHeader />
-
+    </div>
+    <div class="container mx-auto px-5 lg:px-10 pb-20 flex flex-col justify-center items-center h-[calc(100vh-4rem)]">
       <!-- Home Main -->
       <main
         class="grid lg:grid-cols-[2fr,1fr] gap-8 py-16 md:py-4 lg:py-4 max-w-screen w-full"
@@ -57,7 +58,7 @@
           text="slate-800 xl dark:slate-50"
         >
           <div
-            class="flex flex-col w-full glass bg-gradient-to-br from-slate-100 via-gray-100 to-stone-100 space-y-4 py-3 px-6 lg:py-6 rounded-xl inset-0"
+            class="flex flex-col w-full glass bg-gradient-to-br from-slate-100 via-gray-100 to-stone-100 space-y-4 py-2 px-4 lg:py-4 rounded-xl inset-0"
             dark="from-slate-800 via-sky-900 to-slate-800"
             border="~ light-100 !opacity-10 dark:light-50"
           >

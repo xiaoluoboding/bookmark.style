@@ -50,7 +50,7 @@ const useRetinaImage = async (node: HTMLElement) => {
     })
 
     const base64Image = canvas.toDataURL('image/png')
-    console.log(base64Image)
+    
     // Split the base64 string in data and contentType
     const block = base64Image.split(";");
     // Get the content type
@@ -61,7 +61,6 @@ const useRetinaImage = async (node: HTMLElement) => {
     // Convert b64 to blob and store it into a constiable (with real base64 as value)
     const canvasBlob = b64toBlob(realData, mimeType)
 
-    console.log(canvasBlob);
     imageBlob.value = canvasBlob
 
   } catch (error) {
