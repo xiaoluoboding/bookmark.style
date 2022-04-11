@@ -8,7 +8,7 @@
 
       <!-- Home Main -->
       <main
-        class="grid lg:grid-cols-[2fr,1fr] gap-8 py-16 lg:pt-32 max-w-screen w-full"
+        class="grid lg:grid-cols-[2fr,1fr] gap-8 py-16 md:py-4 lg:py-4 max-w-screen w-full"
       >
         <section class="relative flex-1 grid place-items-center">
           <div class="pointer-events-none">
@@ -302,12 +302,12 @@ import { useGlobalStore } from '@/store/global'
 const globalStore = useGlobalStore()
 const showQRCode = ref(true)
 const isHorizontal = ref(false)
-const localBookmarkLink = ref('https://github.com/one-tab-group/bookmark.style')
+const localBookmarkLink = ref('https://bookmark.style')
 const notifyList = ref<NotifyItem[]>([])
 
 const state = reactive({
   // local state
-  bookmarkLink: 'https://github.com/one-tab-group/bookmark.style',
+  bookmarkLink: 'https://bookmark.style',
   isCopying: false,
   roundedCornersOption: [
     {

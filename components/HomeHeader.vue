@@ -1,6 +1,6 @@
 <template>
   <header
-    class="relative h-16 pt-8 flex justify-between items-center gap-4 w-full"
+    class="relative h-16 flex justify-between items-center gap-4 w-full"
   >
     <!-- <GradientLink class="text-2xl font-semibold">
       bookmark.style
