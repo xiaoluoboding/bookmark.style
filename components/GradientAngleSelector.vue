@@ -44,19 +44,21 @@ import MdiPanBottomLeft from '~icons/mdi/pan-bottom-left'
 import MdiPanDown from '~icons/mdi/pan-down'
 import MdiPanBottomRight from '~icons/mdi/pan-bottom-right'
 
+import { GradientAngle } from '@/types'
+
 defineProps({
   value: {
-    type: String as PropType<Angle | string>,
+    type: String as PropType<GradientAngle | string>,
     default: 'br',
     require: true
   }
 })
 
 const emit = defineEmits<{
-  (e: 'update:value', content: Angle): void
+  (e: 'update:value', content: GradientAngle): void,
+  (e: 'change', content: GradientAngle): void
 }>()
 
-type Angle = 'tl' | 't' | 'tr' | 'l' | 'none' | 'r' | 'bl' | 'b' | 'br'
 
 const state = reactive({
   angleMap: {
@@ -73,9 +75,10 @@ const state = reactive({
   selectedAngle: 'br'
 })
 
-const handleSelect = (key: Angle) => {
+const handleSelect = (key: GradientAngle) => {
   if (key === 'none') return
   state.selectedAngle = key
-  emit('update:value', key)
+  emit('change', key)
+
 }
 </script>

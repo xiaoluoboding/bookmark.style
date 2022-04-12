@@ -4,7 +4,7 @@
     :class="placementClass"
   >
     <template
-      v-for="(notification, idx) of notifyList.slice().reverse()"
+      v-for="(notification, idx) of notificationList.slice().reverse()"
       :key="idx"
     >
       <!--
@@ -85,10 +85,10 @@
 
 <script lang="ts" setup>
 import { withDefaults, computed } from 'vue'
-import type { NotifyItem, NotifyPlacement } from '@/types'
+import type { NotificationItem, NotificationPlacement } from '@/types'
 
 // For <sm breakpoint, we always position it at the center.
-const placementClassMap: Map<NotifyPlacement, string> = new Map([
+const placementClassMap: Map<NotificationPlacement, string> = new Map([
   [
     'TOP_LEFT',
     'flex flex-col-reverse items-start justify-center sm:justify-end'
@@ -115,8 +115,8 @@ const placementClassMap: Map<NotifyPlacement, string> = new Map([
 
 const props = withDefaults(
   defineProps<{
-    notifyList: NotifyItem[]
-    placement?: NotifyPlacement
+    notificationList: NotificationItem[]
+    placement?: NotificationPlacement
   }>(),
   {
     placement: 'CENTER'
@@ -124,7 +124,7 @@ const props = withDefaults(
 )
 
 defineEmits<{
-  (event: 'close', notifyItem: NotifyItem): void
+  (event: 'close', notificationItem: NotificationItem): void
 }>()
 
 const placementClass = computed(() => placementClassMap.get(props.placement))
