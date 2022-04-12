@@ -1,6 +1,6 @@
 import { ref } from 'vue'
-// import domtoimage from 'dom-to-image'
-import html2canvas from 'html2canvas'
+import domtoimage from 'dom-to-image'
+// import html2canvas from 'html2canvas'
 
 // improve the image quality
 // relate issue: https://github.com/tsayen/dom-to-image/issues/69
@@ -32,40 +32,40 @@ const useRetinaImage = async (node: HTMLElement) => {
     },
   }
 
-  // try {
-  //   imageBlob.value = await domtoimage.toBlob(node, retinaOption)
-  // } catch (error) {
-  //   console.error("oops, something went wrong!", error)
-  // }
-
   try {
-    const canvas = await html2canvas(node, {
-      scale: 2,
-      allowTaint: true,
-      useCORS: true,
-      width: node.offsetWidth,
-      height: node.offsetHeight,
-      // x: getOffsetLeft(node),
-      // y: getOffsetTop(node)
-    })
-
-    const base64Image = canvas.toDataURL('image/png')
-    
-    // Split the base64 string in data and contentType
-    const block = base64Image.split(";");
-    // Get the content type
-    const mimeType = block[0].split(":")[1];// In this case "image/png"
-    // get the real base64 content of the file
-    const realData = block[1].split(",")[1];// For example:  iVBORw0KGgouqw23....
-
-    // Convert b64 to blob and store it into a constiable (with real base64 as value)
-    const canvasBlob = b64toBlob(realData, mimeType)
-
-    imageBlob.value = canvasBlob
-
+    imageBlob.value = await domtoimage.toBlob(node, retinaOption)
   } catch (error) {
     console.error("oops, something went wrong!", error)
   }
+
+  // try {
+  //   const canvas = await html2canvas(node, {
+  //     scale: 2,
+  //     allowTaint: true,
+  //     useCORS: true,
+  //     width: node.offsetWidth,
+  //     height: node.offsetHeight,
+  //     // x: getOffsetLeft(node),
+  //     // y: getOffsetTop(node)
+  //   })
+
+  //   const base64Image = canvas.toDataURL('image/png')
+    
+  //   // Split the base64 string in data and contentType
+  //   const block = base64Image.split(";");
+  //   // Get the content type
+  //   const mimeType = block[0].split(":")[1];// In this case "image/png"
+  //   // get the real base64 content of the file
+  //   const realData = block[1].split(",")[1];// For example:  iVBORw0KGgouqw23....
+
+  //   // Convert b64 to blob and store it into a constiable (with real base64 as value)
+  //   const canvasBlob = b64toBlob(realData, mimeType)
+
+  //   imageBlob.value = canvasBlob
+
+  // } catch (error) {
+  //   console.error("oops, something went wrong!", error)
+  // }
 
   return {
     imageBlob,
