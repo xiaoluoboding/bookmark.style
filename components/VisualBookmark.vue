@@ -13,13 +13,14 @@
       target="_blank"
     >
       <div
-        class="relative grid order-1 min-w-1/2 flex-grow-[999] basis-[0]"
+        class="relative flex order-1 min-w-1/2 flex-grow-[999] basis-[0]"
         :class="[
-          qrcode ? 'grid-cols-[2fr,1fr]' : '',
-          horizontal ? 'py-3 px-4' : 'py-4 px-5'
+          qrcode ? 'justify-between' : '',
+          horizontal ? 'py-0 pl-4 pr-4': 'py-2 px-4',
+          (qrcode && horizontal) ? '!pr-0' : '!pl-4 !pr-2'
         ]"
       >
-        <div>
+        <div class="flex-1 flex flex-col justify-center font-sans">
           <div
             class="items-center font-semibold line-clamp-1"
             :class="[horizontal ? 'text-sm' : 'text-base']"
@@ -53,10 +54,10 @@
           </div>
         </div>
 
-        <div v-if="qrcode && metaData.url">
+        <div v-if="qrcode && metaData.url" class="w-32 h-32">
           <FancyQRCode
             :url="metaData.url"
-            class="absolute right-0 bottom-0 h-full w-1/3"
+            class="w-32 h-32"
           />
         </div>
       </div>
@@ -64,7 +65,7 @@
         v-if="metaData.image"
         class="relative min-w-1/3 max-h-full"
         :class="[
-          horizontal ? 'h-30 basis-[13.5rem]' : 'h-64 basis-[16rem] flex-grow'
+          horizontal ? 'h-32 basis-[13.5rem]' : 'h-64 basis-[16rem] flex-grow'
         ]"
       >
         <img
