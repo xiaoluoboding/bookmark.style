@@ -94,7 +94,8 @@ const props = defineProps({
 })
 
 const emit = defineEmits<{
-  (e: 'update:value', content: SelectOption['value']): void
+  (e: 'update:value', content: SelectOption['value']): void,
+  (e: 'change', content: SelectOption['value']): void
 }>()
 
 const localState = reactive({
@@ -111,6 +112,6 @@ const handleCloseDropdown = () => {
 
 const handleSelectOption = (option: SelectOption) => {
   handleCloseDropdown()
-  emit('update:value', option.value)
+  emit('change', option.value)
 }
 </script>

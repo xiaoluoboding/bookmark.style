@@ -1,6 +1,7 @@
 <template>
   <div
-    class="h-full min-h-screen w-full min-w-screen bg-gradient-to-br from-slate-200 to-slate-50 dark:from-slate-700 dark:to-slate-900 m-0"
+    class="h-full min-h-screen w-full min-w-screen bg-gradient-to-br from-slate-200 to-slate-50 m-0"
+    dark="from-slate-700 to-slate-900"
   >
     <div class="container mx-auto px-5">
       <!-- Home Header -->
@@ -18,7 +19,7 @@
               class="overflow-hidden shadow-xl relative duration-200 transform-gpu transition-all ease-linear"
               :class="[
                 bookmarkClass,
-                `rounded-${globalStore.setting.wrapperRoundedCornersValue}`
+                `rounded-${globalStore.setting.wrapperRoundedCorner}`
               ]"
             >
               <div
@@ -26,7 +27,7 @@
                 :class="[
                   bookmarkClass,
                   selectedBackground,
-                  `rounded-${globalStore.setting.wrapperRoundedCornersValue}`
+                  `rounded-${globalStore.setting.wrapperRoundedCorner}`
                 ]"
                 :style="bookmarkBgStyle"
               >
@@ -39,7 +40,7 @@
                   :url="globalStore.setting.bookmarkLink"
                   :horizontal="globalStore.setting.isHorizontal"
                   :qrcode="globalStore.setting.showQRCode"
-                  :corner="globalStore.setting.bookmarkRoundedCornersValue"
+                  :corner="globalStore.setting.bookmarkRoundedCorner"
                 >
                   <div
                     class="inset-0 absolute -z-1 rounded-xl inset-0"
@@ -118,96 +119,4 @@ const bookmarkClass = computed(() => {
 </script>
 
 <style scoped>
-.range {
-  -webkit-appearance: none;
-  @apply w-full h-4 cursor-pointer overflow-hidden bg-transparent rounded-full;
-}
-
-.range::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  @apply bg-sky-500 rounded-full w-4 h-4;
-  @apply transition-all duration-300 ease-in-out
-  cursor: ew-resize;
-  box-shadow: 0 0 2px 0 rgba(14, 165, 233, 0.66),;
-}
-
-.range::-webkit-slider-runnable-track  {
-  -webkit-appearance: none;
-  @apply bg-slate-200 border-slate-900 border shadow-transparent;
-  @apply dark:bg-sky-700 dark:border-slate-200;
-}
-
-.range:focus {
-  outline: none;
-}
-
-.aspect-auto {
-  aspect-ratio: auto;
-}
-
-.bg-none {
-  background-image: none;
-}
-
-.rounded-2xl {
-  border-radius: 1rem;
-}
-
-.rounded-3xl {
-  border-radius: 1.5rem;
-}
-
-.bg-gradient-to-t {
-  background-image: linear-gradient(to top, var(--tw-gradient-stops));
-}
-.bg-gradient-to-tr {
-  background-image: linear-gradient(to top right, var(--tw-gradient-stops));
-}
-.bg-gradient-to-r {
-  background-image: linear-gradient(to right, var(--tw-gradient-stops));
-}
-.bg-gradient-to-br {
-  background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
-}
-.bg-gradient-to-b {
-  background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
-}
-.bg-gradient-to-bl {
-  background-image: linear-gradient(to bottom left, var(--tw-gradient-stops));
-}
-.bg-gradient-to-l {
-  background-image: linear-gradient(to left, var(--tw-gradient-stops));
-}
-.bg-gradient-to-tl {
-  background-image: linear-gradient(to top left, var(--tw-gradient-stops));
-}
-
-.gradient-border {
-  --borderWidth: 3px;
-  border-radius: var(--borderWidth);
-}
-.gradient-border:after {
-  content: '';
-  position: absolute;
-  top: calc(-1 * var(--borderWidth));
-  left: calc(-1 * var(--borderWidth));
-  height: calc(100% + var(--borderWidth) * 2);
-  width: calc(100% + var(--borderWidth) * 2);
-  background: conic-gradient(
-    rgba(6, 182, 212, .66),
-    rgba(14, 165, 233, 0.66),
-    rgba(6, 182, 212, .66)
-  );
-  border-radius: calc(2 * var(--borderWidth));
-  z-index: -1;
-  background-size: 300% 300%;
-}
-
-.dark .gradient-border:after {
-  background: conic-gradient(
-    rgba(179, 132, 201, 0),
-    rgba(14, 165, 233, 0.66),
-    rgba(179, 132, 201, 0)
-  );
-}
 </style>

@@ -7,8 +7,8 @@ export type GlobalSetting = {
   gradientAngle: GradientAngle;
   gradientGrainy: boolean;
   padding: number;
-  wrapperRoundedCornersValue: CornerSize;
-  bookmarkRoundedCornersValue: CornerSize;
+  wrapperRoundedCorner: CornerSize;
+  bookmarkRoundedCorner: CornerSize;
   isHorizontal: boolean;
   showQRCode: boolean;
 }

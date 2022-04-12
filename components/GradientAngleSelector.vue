@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-3 p-1 rounded-lg gradient-border z-10">
+  <div class="grid grid-cols-3 p-1 rounded-lg z-10">
     <component
       class="cursor-pointer w-5 h-5"
       v-for="(item, key) in state.angleMap"

@@ -138,8 +138,9 @@
           <section class="rounded-lg flex flex-wrap gap-1">
             <VbSelect
               class="w-40"
-              v-model:value="globalStore.setting.wrapperRoundedCornersValue"
+              v-model:value="globalStore.setting.wrapperRoundedCorner"
               :options="state.roundedCornersOption"
+              @change="val => (globalStore.setting.wrapperRoundedCorner = val)"
             />
           </section>
         </figure>
@@ -149,8 +150,9 @@
           <section class="rounded-lg flex flex-wrap gap-1">
             <VbSelect
               class="w-40"
-              v-model:value="globalStore.setting.bookmarkRoundedCornersValue"
+              v-model:value="globalStore.setting.bookmarkRoundedCorner"
               :options="state.roundedCornersOption"
+              @change="val => (globalStore.setting.bookmarkRoundedCorner = val)"
             />
           </section>
         </figure>
@@ -309,7 +311,30 @@ const handleRenderBookmark = useDebounceFn((e: any) => {
 }, 1000)
 </script>
 
-<style scoped>
+<style>
+.range {
+  -webkit-appearance: none;
+  @apply w-full h-4 cursor-pointer overflow-hidden bg-transparent rounded-full;
+}
+
+.range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  @apply bg-sky-500 rounded-full w-4 h-4;
+  @apply transition-all duration-300 ease-in-out
+  cursor: ew-resize;
+  box-shadow: 0 0 2px 0 rgba(14, 165, 233, 0.66),;
+}
+
+.range::-webkit-slider-runnable-track  {
+  -webkit-appearance: none;
+  @apply bg-slate-200 border-slate-900 border shadow-transparent;
+  @apply dark:bg-sky-700 dark:border-slate-200;
+}
+
+.range:focus {
+  outline: none;
+}
+
 .feature-divider {
   @apply w-full h-[2px] max-w-screen-xl mx-auto my-2;
 }
@@ -317,6 +342,76 @@ const handleRenderBookmark = useDebounceFn((e: any) => {
 .feature-divider--between {
   background: linear-gradient(
     90deg,
+    rgba(179, 132, 201, 0),
+    rgba(14, 165, 233, 0.66),
+    rgba(179, 132, 201, 0)
+  );
+}
+
+.aspect-auto {
+  aspect-ratio: auto;
+}
+
+.bg-none {
+  background-image: none;
+}
+
+.rounded-2xl {
+  border-radius: 1rem;
+}
+
+.rounded-3xl {
+  border-radius: 1.5rem;
+}
+
+.bg-gradient-to-t {
+  background-image: linear-gradient(to top, var(--tw-gradient-stops));
+}
+.bg-gradient-to-tr {
+  background-image: linear-gradient(to top right, var(--tw-gradient-stops));
+}
+.bg-gradient-to-r {
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
+}
+.bg-gradient-to-br {
+  background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
+}
+.bg-gradient-to-b {
+  background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
+}
+.bg-gradient-to-bl {
+  background-image: linear-gradient(to bottom left, var(--tw-gradient-stops));
+}
+.bg-gradient-to-l {
+  background-image: linear-gradient(to left, var(--tw-gradient-stops));
+}
+.bg-gradient-to-tl {
+  background-image: linear-gradient(to top left, var(--tw-gradient-stops));
+}
+
+.gradient-border {
+  --borderWidth: 3px;
+  border-radius: var(--borderWidth);
+}
+.gradient-border:after {
+  content: '';
+  position: absolute;
+  top: calc(-1 * var(--borderWidth));
+  left: calc(-1 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth) * 2);
+  width: calc(100% + var(--borderWidth) * 2);
+  background: conic-gradient(
+    rgba(6, 182, 212, .66),
+    rgba(14, 165, 233, 0.66),
+    rgba(6, 182, 212, .66)
+  );
+  border-radius: calc(2 * var(--borderWidth));
+  z-index: -1;
+  background-size: 300% 300%;
+}
+
+.dark .gradient-border:after {
+  background: conic-gradient(
     rgba(179, 132, 201, 0),
     rgba(14, 165, 233, 0.66),
     rgba(179, 132, 201, 0)
