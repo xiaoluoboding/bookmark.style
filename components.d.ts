@@ -4,6 +4,7 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
+    'Carbon:cafe': typeof import('~icons/carbon/cafe')['default']
     'Carbon:copy': typeof import('~icons/carbon/copy')['default']
     'Carbon:download': typeof import('~icons/carbon/download')['default']
     'Carbon:logoTwitter': typeof import('~icons/carbon/logo-twitter')['default']
@@ -20,6 +21,7 @@ declare module 'vue' {
     'HeroiconsSolid:selector': typeof import('~icons/heroicons-solid/selector')['default']
     'HeroiconsSolid:x': typeof import('~icons/heroicons-solid/x')['default']
     'Mdi:circle': typeof import('~icons/mdi/circle')['default']
+    'Mdi:heart': typeof import('~icons/mdi/heart')['default']
     'Mdi:qrcode': typeof import('~icons/mdi/qrcode')['default']
     'Mdi:qrcodeScan': typeof import('~icons/mdi/qrcode-scan')['default']
     MdiDockRight: typeof import('~icons/mdi/dock-right')['default']

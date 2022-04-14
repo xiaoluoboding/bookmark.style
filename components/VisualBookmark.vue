@@ -108,7 +108,7 @@
         ></path>
       </svg>
       <span class="mt-4 text-slate-800 dark:text-slate-200">
-        Loading Visualization Bookmark...
+        Styling your visual web bookmark...
       </span>
     </div>
   </figure>

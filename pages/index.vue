@@ -62,14 +62,20 @@
         class="fixed bottom-4 left-0 flex flex-col justify-center items-center w-full"
         text="slate-900 dark:slate-300 opacity-60 sm"
       >
-        <p class="flex items-center">
-          Code with ❤️ & ☕️ By
-          <GradientLink to="https://twitter.com/xiaoluoboding" class="flex items-center">
-            <carbon:logo-twitter class="text-sky-500" /> @xiaoluoboding
-          </GradientLink>
-          © {{ new Date().getFullYear() }}
+        <p class="flex items-center space-x-1">
+          <carbon:logo-twitter class="text-sky-500" />
+          <span>
+            <a href="https://twitter.com/xiaoluoboding" class="text-neon" target="_blank">
+              @xiaoluoboding
+            </a>
+          </span>
+          <span class="px-2 text-sky-300">|</span>          
+          <carbon:cafe class="text-sky-500" />
+          <span>
+            <a href="https://github.com/sponsors/xiaoluoboding" target="_blank" class="text-neon">Buy me a coffee</a>
+          </span>
+          <!-- <span>© {{ new Date().getFullYear() }}</span> -->
         </p>
-        <p>Powered by Vite & Nuxt 3 & Netlify</p>
       </footer>
 
       <template v-if="notificationList.length > 0">

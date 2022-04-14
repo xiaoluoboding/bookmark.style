@@ -9,7 +9,7 @@ export default defineConfig({
   plugins: [typography, lineClamp, forms],
   shortcuts: {
     'text-neon':
-      'text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-sky-200',
+      'text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-sky-900 dark:to-sky-200 ',
     glass:
       'backdrop-filter backdrop-blur-lg backdrop-saturate-[180%] filter drop-shadow-xl',
     btn: `
