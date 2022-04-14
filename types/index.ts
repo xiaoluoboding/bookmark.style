@@ -35,3 +35,15 @@ export type NotificationItem = {
 export type NotificationState = {
   notificationList: NotificationItem[]
 }
+
+export type MetaData = {
+  title: string
+  description: string
+  url: string
+  image: string
+  logo: string
+  author: string
+  publisher: string
+  base64Image: string
+  base64Logo: string
+}
