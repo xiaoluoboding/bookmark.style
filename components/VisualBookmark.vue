@@ -190,15 +190,12 @@ const init = async () => {
   //   return $fetch('/api/metafy', { params: { url: props.url } })
   // })
 
-  console.log(data)
-
   if (data) {
     let base64Image = ''
     if (data?.image) {
       try {
         base64Image = await getBase64Image(data.image)
       } catch (error) {
-        console.log(error)
         console.log(`Oops, something went wrong: Maybe caused by CORS!!!`)
       }
     }
