@@ -7,16 +7,6 @@
       v-for="(notification, idx) of notificationList.slice().reverse()"
       :key="idx"
     >
-      <!--
-        Notification panel, show/hide based on alert state.
-
-        Entering: "transform ease-out duration-300 transition"
-          From: "translate-y-2 opacity-0 sm:translate-y-0 sm:translate-x-2"
-          To: "translate-y-0 opacity-100 sm:translate-x-0"
-        Leaving: "transition ease-in duration-100"
-          From: "opacity-100"
-          To: "opacity-0"
-      -->
       <transition
         enter-active-class="transform ease-out duration-300 transition"
         enter-from-class="translate-y-2 opacity-0 sm:translate-y-0 sm:translate-x-2"
@@ -55,19 +45,20 @@
               </div>
               <div class="ml-3 w-0 flex-1 pt-0.5">
                 <p
-                  class="text-sm font-medium text-gray-900 dark:text-slate-50 whitespace-pre-wrap"
+                  class="text-sm font-medium text-slate-900 dark:text-slate-50 whitespace-pre-wrap"
                 >
                   {{ notification.title }}
                 </p>
                 <p
-                  class="mt-1 text-sm text-gray-500 dark:text-slate-50 whitespace-pre-wrap"
+                  class="mt-1 text-sm text-slate-500 dark:text-slate-50 whitespace-pre-wrap"
                 >
                   {{ notification.description }}
                 </p>
               </div>
               <div class="ml-4 flex-shrink-0 flex">
                 <button
-                  class="bg-white rounded-md inline-flex text-gray-400 hover:text-gray-500 focus:outline-none"
+                  class="bg-transparent rounded-md inline-flex text-slate-400 hover:text-slate-500 focus:outline-none"
+                  dark="hover:text-slate-300"
                   @click.prevent="$emit('close', notification)"
                 >
                   <span class="sr-only">Close</span>
