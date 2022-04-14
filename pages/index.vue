@@ -36,17 +36,19 @@
                   src="/nosie.svg"
                   class="absolute inset-0 w-full h-full bg-repeat opacity-30 filter brightness-100 contrast-150 rounded-none"
                 />
-                <VisualBookmark
-                  :url="globalStore.setting.bookmarkLink"
-                  :horizontal="globalStore.setting.isHorizontal"
-                  :qrcode="globalStore.setting.showQRCode"
-                  :corner="globalStore.setting.bookmarkRoundedCorner"
-                >
-                  <div
-                    class="inset-0 absolute -z-1 rounded-xl inset-0"
-                    :class="[selectedBackground, 'bg-transparent']"
-                  />
-                </VisualBookmark>
+                <ClientOnly>
+                  <VisualBookmark
+                    :url="globalStore.setting.bookmarkLink"
+                    :horizontal="globalStore.setting.isHorizontal"
+                    :qrcode="globalStore.setting.showQRCode"
+                    :corner="globalStore.setting.bookmarkRoundedCorner"
+                  >
+                    <div
+                      class="inset-0 absolute -z-1 rounded-xl inset-0"
+                      :class="[selectedBackground, 'bg-transparent']"
+                    />
+                  </VisualBookmark>
+                </ClientOnly>
               </div>
             </div>
           </div>
