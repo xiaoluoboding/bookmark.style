@@ -90,8 +90,8 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue'
-import { useMediaQuery } from '@vueuse/core'
+import { computed, onMounted } from 'vue'
+import { useMediaQuery, useUrlSearchParams } from '@vueuse/core'
 
 import { useGlobalStore, useNotificationStore } from '@/store'
 
@@ -100,6 +100,7 @@ const { notificationList, removeNotification } = useNotificationStore()
 
 const isMobileScreen = useMediaQuery('(max-width: 640px)')
 const isLargeScreen = useMediaQuery('(min-width: 1024px)')
+const urlSearchParams = useUrlSearchParams('history')
 
 const selectedBackground = computed(() => {
   if (globalStore.setting.selectedGradientBgName) {
@@ -123,6 +124,12 @@ const bookmarkBgStyle = computed(() => {
 
 const bookmarkClass = computed(() => {
   return Number(globalStore.setting.padding) === 0 ? '!bg-transparent' : ''
+})
+
+onMounted(() => {
+  if (urlSearchParams.url) {
+    globalStore.setting.bookmarkLink = urlSearchParams.url as string
+  }
 })
 </script>
 
