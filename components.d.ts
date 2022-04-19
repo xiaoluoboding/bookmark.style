@@ -7,6 +7,7 @@ declare module 'vue' {
     'Carbon:cafe': typeof import('~icons/carbon/cafe')['default']
     'Carbon:copy': typeof import('~icons/carbon/copy')['default']
     'Carbon:download': typeof import('~icons/carbon/download')['default']
+    'Carbon:imageCopy': typeof import('~icons/carbon/image-copy')['default']
     'Carbon:logoTwitter': typeof import('~icons/carbon/logo-twitter')['default']
     'Carbon:search': typeof import('~icons/carbon/search')['default']
     CarbonLogoGithub: typeof import('~icons/carbon/logo-github')['default']

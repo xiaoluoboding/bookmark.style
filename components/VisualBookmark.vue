@@ -15,9 +15,7 @@
       <div
         class="relative flex order-1 min-w-1/2 w-full flex-grow-[999] basis-[0]"
         :class="[
-          qrcode ? 'justify-between' : '',
-          horizontal ? 'py-0 pl-4 pr-4': 'py-2 px-4',
-          (qrcode && horizontal) ? '!pr-0' : '!pl-4 !pr-2'
+          qrcode ? 'justify-between !pl-4' : 'p-4'
         ]"
       >
         <div

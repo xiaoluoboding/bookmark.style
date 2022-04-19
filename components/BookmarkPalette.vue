@@ -194,7 +194,7 @@
           >
             <SpinIcon />
           </div>
-          <carbon:copy class="w-5 h-5" v-else />
+          <carbon:image-copy class="w-5 h-5" v-else />
           <span class="ml-2 text-base">Copy</span>
         </button>
 
