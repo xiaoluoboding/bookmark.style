@@ -3,6 +3,19 @@
     class="h-full min-h-screen w-full min-w-screen bg-gradient-to-br from-slate-200 to-slate-50 m-0"
     dark="from-slate-700 to-slate-900"
   >
+
+    <div class="px-4 py-2 text-white !bg-gradient-to-r" :class="selectedBackground">
+      <p class="flex items-center justify-center text-sm font-medium !text-white">
+        bookmark.style also support the chrome extension version.
+        <a
+          class="underline flex items-center"
+          href="https://chrome.google.com/webstore/detail/web-visual-bookmark/jcfidgjldodhkpiebmemhnhgpgdakham/"
+          target="_blank"
+        >
+          <span class="ml-2 text-xs">Get Chrome Extension &rarr;</span>
+        </a>
+      </p>
+    </div>
     <div class="container mx-auto px-5">
       <!-- Home Header -->
       <HomeHeader />
@@ -66,13 +79,22 @@
           <carbon:logo-twitter class="text-sky-500" />
           <span>
             <a href="https://twitter.com/xiaoluoboding" class="text-neon" target="_blank">
-              @xiaoluoboding
+              Follow me on Twitter
             </a>
           </span>
-          <span class="px-2 text-sky-300">|</span>          
+          <span class="px-2 text-sky-300">|</span>         
           <carbon:cafe class="text-sky-500" />
           <span>
-            <a href="https://github.com/sponsors/xiaoluoboding" target="_blank" class="text-neon">Buy me a coffee</a>
+            <a href="https://www.buymeacoffee.com/xlbd" target="_blank" class="text-neon">
+              Buy me a coffee
+            </a>
+          </span>
+          <span class="px-2 text-sky-300">|</span>  
+          <mdi:heart class="text-sky-500" />
+          <span>
+            <a href="https://github.com/sponsors/xiaoluoboding" target="_blank" class="text-neon">
+              Sponsor me on GitHub
+            </a>
           </span>
           <!-- <span>© {{ new Date().getFullYear() }}</span> -->
         </p>
