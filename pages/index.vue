@@ -3,8 +3,8 @@
     class="h-full min-h-screen w-full min-w-screen bg-gradient-to-br from-slate-200 to-slate-50 m-0"
     dark="from-slate-700 to-slate-900"
   >
-
-    <div class="px-4 py-2 text-white !bg-gradient-to-r" :class="selectedBackground">
+    <!-- bannder -->
+    <div class="fixed w-full px-4 py-2 text-white !bg-gradient-to-r" :class="selectedBackground">
       <p class="flex items-center justify-center text-sm font-medium !text-white">
         bookmark.style also support the chrome extension version.
         <a
@@ -16,11 +16,11 @@
         </a>
       </p>
     </div>
-    <div class="container mx-auto px-5">
+    <div class="container mx-auto px-5 pt-9">
       <!-- Home Header -->
       <HomeHeader />
     </div>
-    <div class="container mx-auto px-5 lg:px-10 pb-20 flex flex-col justify-center items-center h-[calc(100vh-4rem)]">
+    <div class="container mx-auto px-5 lg:px-10 pb-20 flex flex-col justify-center items-center h-[calc(100vh-6.5rem)]">
       <!-- Home Main -->
       <main
         class="grid lg:grid-cols-[2fr,1fr] gap-8 py-16 md:py-4 lg:py-4 max-w-screen w-full"
@@ -75,6 +75,10 @@
         class="fixed bottom-4 left-0 flex flex-col justify-center items-center w-full"
         text="slate-900 dark:slate-300 opacity-60 sm"
       >
+        <p>
+          Code with ❤ & ☕️ by <a class="text-neon" href="https://github.com/xiaoluoboding">@xiaoluoboding</a>
+          <span> © {{ new Date().getFullYear() }}</span>
+        </p>
         <p class="flex items-center space-x-1">
           <carbon:logo-twitter class="text-sky-500" />
           <span>
@@ -96,7 +100,6 @@
               Sponsor me on GitHub
             </a>
           </span>
-          <!-- <span>© {{ new Date().getFullYear() }}</span> -->
         </p>
       </footer>
 
