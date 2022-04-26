@@ -24,6 +24,8 @@ declare module 'vue' {
     'Mdi:circle': typeof import('~icons/mdi/circle')['default']
     'Mdi:heart': typeof import('~icons/mdi/heart')['default']
     'Mdi:qrcode': typeof import('~icons/mdi/qrcode')['default']
+    'Mdi:qrcodeMinus': typeof import('~icons/mdi/qrcode-minus')['default']
+    'Mdi:qrcodePlus': typeof import('~icons/mdi/qrcode-plus')['default']
     'Mdi:qrcodeScan': typeof import('~icons/mdi/qrcode-scan')['default']
     MdiDockRight: typeof import('~icons/mdi/dock-right')['default']
     MdiDockTop: typeof import('~icons/mdi/dock-top')['default']

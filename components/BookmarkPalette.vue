@@ -175,8 +175,8 @@
           title="$t('button.show_qrcode')"
           @click="globalStore.setting.showQRCode = !globalStore.setting.showQRCode"
         >
-          <mdi:qrcode v-if="globalStore.setting.showQRCode" />
-          <mdi:qrcode-scan v-else />
+          <mdi:qrcode-plus v-if="globalStore.setting.showQRCode" />
+          <mdi:qrcode-minus v-else />
         </button>
       </div>
 
