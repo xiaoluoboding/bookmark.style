@@ -112,6 +112,9 @@
       </template>
     </div>
   </div>
+  <ClientOnly>
+    <Chatwoot />
+  </ClientOnly>
 </template>
 
 <script lang="ts" setup>

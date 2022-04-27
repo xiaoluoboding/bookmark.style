@@ -53,6 +53,7 @@ export default defineNuxtConfig({
     domain: 'bookmark.style'
   },
   publicRuntimeConfig: {
-    PLAUSIBLE_TOKEN: process.env.PLAUSIBLE_TOKEN
+    PLAUSIBLE_TOKEN: process.env.PLAUSIBLE_TOKEN,
+    CHATWOOT_WEBSITE_TOKEN: process.env.CHATWOOT_WEBSITE_TOKEN
   }
 })
