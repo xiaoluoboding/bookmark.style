@@ -112,8 +112,9 @@
       </template>
     </div>
   </div>
+  
   <client-only>
-    <Chatwoot />
+    <chatwoot />
   </client-only>
 </template>
 
