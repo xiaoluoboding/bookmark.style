@@ -2,6 +2,7 @@
 const config = useRuntimeConfig()
 
 console.log(config)
+console.log(config.CHATWOOT_WEBSITE_TOKEN)
 
 ;(function (d, t) {
   const BASE_URL = 'https://app.chatwoot.com'

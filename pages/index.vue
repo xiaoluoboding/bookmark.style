@@ -112,9 +112,9 @@
       </template>
     </div>
   </div>
-  <ClientOnly>
+  <client-only>
     <Chatwoot />
-  </ClientOnly>
+  </client-only>
 </template>
 
 <script lang="ts" setup>
