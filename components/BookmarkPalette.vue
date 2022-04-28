@@ -33,7 +33,7 @@
                 lg="py-2 rounded-lg"
                 dark="bg-slate-700 bg-opacity-40 border-slate-600 text-slate-100 focus:border-sky-500 focus:bg-sky-900 focus:ring-2 focus:ring-sky-900"
                 placeholder="Paste or type a web site URL"
-                v-model="globalStore.setting.bookmarkLink"
+                v-model="state.localBookmarkLink"
                 @input="handleRenderBookmark"
               />
             </div>
@@ -307,7 +307,7 @@ const handleGradientAngleChange = (angle: GradientAngle) => {
 }
 
 const handleRenderBookmark = useDebounceFn((e: any) => {
-  state.localBookmarkLink = e?.target?.value ?? ''
+  globalStore.setting.bookmarkLink = e?.target?.value ?? ''
 }, 1000)
 </script>
 
