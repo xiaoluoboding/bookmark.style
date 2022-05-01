@@ -211,7 +211,7 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive } from 'vue'
+import { reactive, onMounted } from 'vue'
 import domtoimage from 'dom-to-image'
 import { copyBlobToClipboard } from 'copy-image-clipboard'
 import { saveAs } from 'file-saver'
@@ -309,6 +309,10 @@ const handleGradientAngleChange = (angle: GradientAngle) => {
 const handleRenderBookmark = useDebounceFn((e: any) => {
   globalStore.setting.bookmarkLink = e?.target?.value ?? ''
 }, 1000)
+
+onMounted(() => {
+  state.localBookmarkLink = globalStore.setting.bookmarkLink
+})
 </script>
 
 <style>
