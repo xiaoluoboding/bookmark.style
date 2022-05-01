@@ -211,7 +211,7 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive, onMounted } from 'vue'
+import { reactive, watch } from 'vue'
 import domtoimage from 'dom-to-image'
 import { copyBlobToClipboard } from 'copy-image-clipboard'
 import { saveAs } from 'file-saver'
@@ -225,7 +225,7 @@ const { addNotification, removeNotification } = useNotificationStore()
 
 const state = reactive({
   isCopying: false,
-  localBookmarkLink: 'https://bookmark.style',
+  localBookmarkLink: '',
   roundedCornersOption: [
     {
       label: 'None',
@@ -310,9 +310,13 @@ const handleRenderBookmark = useDebounceFn((e: any) => {
   globalStore.setting.bookmarkLink = e?.target?.value ?? ''
 }, 1000)
 
-onMounted(() => {
-  state.localBookmarkLink = globalStore.setting.bookmarkLink
-})
+watch(
+  () => globalStore.setting.bookmarkLink,
+  (newVal) => {
+    state.localBookmarkLink = newVal
+  },
+  { deep: true, immediate: true }
+)
 </script>
 
 <style>
