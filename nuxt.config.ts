@@ -22,6 +22,14 @@ export default defineNuxtConfig({
       { property: 'twitter:card', content: 'summary_large_image' },
       { property: 'twitter:description', content: '🪄 Turn any link into a stylish visual web bookmark, one-click to copy the beautiful web bookmark image.' },
       { property: 'twitter:image:src', content: 'https://bookmark.style/preview.png' },
+    ],
+    script: [
+      {
+        async: true,
+        defer: true,
+        'data-website-id': '1cc71e06-42da-4bf0-a5c3-366a1a5e4014',
+        'src': 'https://analytics.bookmark.style/umami.js'
+      }
     ]
   },
   modules: [
