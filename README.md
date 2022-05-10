@@ -47,9 +47,9 @@ You can create a new bookmarklet in your browser and enter the URL below:
 javascript:window.location="https://www.bookmark.style/?url="+encodeURIComponent(document.location)
 ```
 
-When you click on the bookmarklet, it will redirect the page you're on to the [https://bookmark.style](bookmark.style).
+When you click on the bookmarklet, it will redirect the page you're on to the [bookmark.style](https://bookmark.style).
 
-[https://bookmark.style](bookmark.style) will auto-parse the URL and render the visual bookmark.
+[bookmark.style](https://bookmark.style) will auto-parse the URL and render the visual bookmark.
 
 ## Setup
 
