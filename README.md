@@ -10,7 +10,7 @@
   <br>
   <p align="center">
     <a href="https://bookmark.style"><img src="https://img.shields.io/website?color=%230ea5e9&down_color=%230ea5e9&down_message=app&label=Bookmark.style&style=for-the-badge&up_color=%230ea5e9&up_message=app&url=https%3A%2F%2Fwww.bookmark.style%2F"></a>
-    <a href="javascript:window.location="https://www.bookmark.style/?url="+encodeURIComponent(document.location)"><img src="https://img.shields.io/badge/browser-bookmarklet-0ea5e9?style=for-the-badge"></a>
+    <a href="javascript:window.location=%22https://www.bookmark.style/?url=%22+encodeURIComponent(document.location)"><img src="https://img.shields.io/badge/browser-bookmarklet-0ea5e9?style=for-the-badge"></a>
     <a href="https://chrome.google.com/webstore/detail/web-visual-bookmark/jcfidgjldodhkpiebmemhnhgpgdakham/"><img src="https://img.shields.io/chrome-web-store/v/jcfidgjldodhkpiebmemhnhgpgdakham?color=%234285F4&logo=googlechrome&logoColor=%234285F4&style=for-the-badge"></a>
   </p>
   <p align="center">
@@ -40,7 +40,17 @@ This web app is built on top of [metafy](https://github.com/xiaoluoboding/metafy
 
 [Go to chrome web store](https://chrome.google.com/webstore/detail/web-visual-bookmark/jcfidgjldodhkpiebmemhnhgpgdakham/)
 
-## Usage
+## Usage Tips
+
+You can drag this link to your browser toolbar:
+
+<a href="javascript:window.location=%22https://www.bookmark.style/?url=%22+encodeURIComponent(document.location)">bookmark.style</a>
+
+When you click on the bookmarklet, it will redirect the page you're on to the [https://bookmark.style](bookmark.style).
+
+[https://bookmark.style](bookmark.style) will auto-parse the URL and render the visual bookmark.
+
+## Setup
 
 ### Install
 
