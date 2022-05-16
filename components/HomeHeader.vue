@@ -132,16 +132,6 @@
     </div>
 
     <div class="flex items-center justify-end gap-4">
-      <a
-        href="https://www.producthunt.com/posts/bookmark-style?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-bookmark&#0045;style"
-        target="_blank"
-        ><img
-          src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=344300&theme=dark"
-          alt="bookmark&#0046;style - 🪄&#0032;Turn&#0032;any&#0032;link&#0032;into&#0032;a&#0032;stylish&#0032;visual&#0032;web&#0032;bookmark&#0046; | Product Hunt"
-          style="width: 250px; height: 48px"
-          width="250"
-          height="48"
-      /></a>
       <button
         class="btn-icon !dark:bg-opacity-80 dark:hover:bg-slate-900"
         title="Toggle Dark Mode"

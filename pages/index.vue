@@ -4,8 +4,13 @@
     dark="from-slate-700 to-slate-900"
   >
     <!-- bannder -->
-    <div class="fixed w-full px-4 py-2 text-white !bg-gradient-to-r" :class="selectedBackground">
-      <p class="flex items-center justify-center text-sm font-medium !text-white">
+    <div
+      class="fixed w-full px-4 py-2 text-white !bg-gradient-to-r"
+      :class="selectedBackground"
+    >
+      <p
+        class="flex items-center justify-center text-sm font-medium !text-white"
+      >
         bookmark.style also support the chrome extension version.
         <a
           class="underline flex items-center"
@@ -20,7 +25,9 @@
       <!-- Home Header -->
       <HomeHeader />
     </div>
-    <div class="container mx-auto px-5 lg:px-10 pb-20 flex flex-col justify-center items-center h-[calc(100vh-6.5rem)]">
+    <div
+      class="container mx-auto px-5 lg:px-10 pb-20 flex flex-col justify-center items-center h-[calc(100vh-6.5rem)]"
+    >
       <!-- Home Main -->
       <main
         class="grid lg:grid-cols-[2fr,1fr] gap-8 py-16 md:py-4 lg:py-4 max-w-screen w-full"
@@ -70,37 +77,69 @@
         <BookmarkPalette />
       </main>
 
+      <div class="container">
+        <div class="producthunt fixed bottom-4">
+          <a
+            href="https://www.producthunt.com/posts/bookmark-style?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-bookmark&#0045;style"
+            target="_blank"
+            ><img
+              src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=344300&theme=dark"
+              alt="bookmark&#0046;style - 🪄&#0032;Turn&#0032;any&#0032;link&#0032;into&#0032;a&#0032;stylish&#0032;visual&#0032;web&#0032;bookmark&#0046; | Product Hunt"
+              style="width: 250px; height: 48px"
+              width="250"
+              height="48"
+          /></a>
+        </div>
+      </div>
+
       <!-- Home Footer -->
       <footer
-        class="fixed bottom-4 left-0 flex flex-col justify-center items-center w-full"
+        class="fixed bottom-4 left-0 w-full flex justify-center items-center"
         text="slate-900 dark:slate-300 opacity-60 sm"
       >
-        <p>
-          Code with ❤ & ☕️ by <a class="text-neon" href="https://github.com/xiaoluoboding">@xiaoluoboding</a>
-          <span> © {{ new Date().getFullYear() }}</span>
-        </p>
-        <p class="flex items-center space-x-1">
-          <carbon:logo-twitter class="text-sky-500" />
-          <span>
-            <a href="https://twitter.com/xiaoluoboding" class="text-neon" target="_blank">
-              Follow me on Twitter
-            </a>
-          </span>
-          <span class="px-2 text-sky-300">|</span>         
-          <carbon:cafe class="text-sky-500" />
-          <span>
-            <a href="https://www.buymeacoffee.com/xlbd" target="_blank" class="text-neon">
-              Buy me a coffee
-            </a>
-          </span>
-          <span class="px-2 text-sky-300">|</span>  
-          <mdi:heart class="text-sky-500" />
-          <span>
-            <a href="https://github.com/sponsors/xiaoluoboding" target="_blank" class="text-neon">
-              Sponsor me on GitHub
-            </a>
-          </span>
-        </p>
+        <div class="copyright flex flex-col justify-center items-center">
+          <p>
+            Code with ❤ & ☕️ by
+            <a class="text-neon" href="https://github.com/xiaoluoboding"
+              >@xiaoluoboding</a
+            >
+            <span> © {{ new Date().getFullYear() }}</span>
+          </p>
+          <p class="flex items-center space-x-1">
+            <carbon:logo-twitter class="text-sky-500" />
+            <span>
+              <a
+                href="https://twitter.com/xiaoluoboding"
+                class="text-neon"
+                target="_blank"
+              >
+                Follow me on Twitter
+              </a>
+            </span>
+            <span class="px-2 text-sky-300">|</span>
+            <carbon:cafe class="text-sky-500" />
+            <span>
+              <a
+                href="https://www.buymeacoffee.com/xlbd"
+                target="_blank"
+                class="text-neon"
+              >
+                Buy me a coffee
+              </a>
+            </span>
+            <span class="px-2 text-sky-300">|</span>
+            <mdi:heart class="text-sky-500" />
+            <span>
+              <a
+                href="https://github.com/sponsors/xiaoluoboding"
+                target="_blank"
+                class="text-neon"
+              >
+                Sponsor me on GitHub
+              </a>
+            </span>
+          </p>
+        </div>
       </footer>
 
       <template v-if="notificationList.length > 0">
@@ -112,7 +151,7 @@
       </template>
     </div>
   </div>
-  
+
   <client-only>
     <chatwoot />
   </client-only>
@@ -143,9 +182,10 @@ const selectedBackground = computed(() => {
 
 const bookmarkBgStyle = computed(() => {
   return {
-    padding: isMobileScreen.value && !isLargeScreen.value
-      ? '0px'
-      : `${globalStore.setting.padding}px`,
+    padding:
+      isMobileScreen.value && !isLargeScreen.value
+        ? '0px'
+        : `${globalStore.setting.padding}px`,
     backgroundColor:
       Number(globalStore.setting.padding) === 0 ? 'transparent !important' : ''
   }
@@ -162,5 +202,4 @@ onMounted(() => {
 })
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
