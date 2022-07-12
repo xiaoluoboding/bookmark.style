@@ -23,17 +23,17 @@ This web app is built on top of [metafy](https://github.com/xiaoluoboding/metafy
 
 ## Articles
 
-* [《How to create a visual web bookmark?》](https://www.xlbd.me/posts/2021-08-16-how-to-create-a-visual-web-bookmark.html)
+- [《How to create a visual web bookmark?》](https://xlbd.me/posts/how-to-create-a-visual-web-bookmark)
 
 ## Features
 
-* 🔮 Turn any given links into a stylish visual web bookmark
-* 🐦 Twitter card like
-* 🔖 Notion web-bookmark like
-* 🖼️ Copy image to your clipboard
-* 💾 Download image to your computer.
-* 📷 Toggle the QRCode on the bookmark
-* 🌛 Dark mode support
+- 🔮 Turn any given links into a stylish visual web bookmark
+- 🐦 Twitter card like
+- 🔖 Notion web-bookmark like
+- 🖼️ Copy image to your clipboard
+- 💾 Download image to your computer.
+- 📷 Toggle the QRCode on the bookmark
+- 🌛 Dark mode support
 
 ## Chrome web extension for bookmark.style
 
@@ -44,7 +44,8 @@ This web app is built on top of [metafy](https://github.com/xiaoluoboding/metafy
 You can create a new bookmarklet in your browser and enter the URL below:
 
 ```js
-javascript:window.location="https://www.bookmark.style/?url="+encodeURIComponent(document.location)
+javascript: window.location =
+  'https://www.bookmark.style/?url=' + encodeURIComponent(document.location)
 ```
 
 When you click on the bookmarklet, it will redirect the page you're on to the [bookmark.style](https://bookmark.style).
