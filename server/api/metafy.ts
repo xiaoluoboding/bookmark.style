@@ -2,7 +2,8 @@ import { useQuery } from 'h3'
 import axios from 'axios'
 import { MetaData } from '@/types'
 
-const API_PREFIX = 'https://metafy.vercel.app/api?url='
+// const API_PREFIX = 'https://metafy.vercel.app/api?url='
+const API_PREFIX = 'https://get-metafy.netlify.app/.netlify/functions/api?url='
 
 export default async (req: any) => {
   const { url } = useQuery(req) as any

@@ -14,9 +14,7 @@
     >
       <div
         class="relative flex order-1 min-w-1/2 w-full flex-grow-[999] basis-[0]"
-        :class="[
-          qrcode ? 'justify-between !pl-4' : 'p-4'
-        ]"
+        :class="[qrcode ? 'justify-between !pl-4' : 'p-4']"
       >
         <div
           class="flex-1 flex flex-col justify-center font-sans"
@@ -56,10 +54,7 @@
         </div>
 
         <div v-if="qrcode && metaData.url" class="w-32 h-32">
-          <FancyQRCode
-            :url="metaData.url"
-            class="w-32 h-32"
-          />
+          <FancyQRCode :url="metaData.url" class="w-32 h-32" />
         </div>
       </div>
       <div
@@ -119,7 +114,9 @@ import axios from 'axios'
 import FancyQRCode from './FancyQRCode.vue'
 import { getBase64Image } from '@/utils'
 
-const API_PREFIX = 'https://metafy.vercel.app/api?url='
+const API_PREFIX_VERCEL = 'https://metafy.vercel.app/api?url='
+const API_PREFIX_NETLIFY =
+  'https://get-metafy.netlify.app/.netlify/functions/api?url='
 
 type MetaData = {
   title: string
@@ -177,10 +174,19 @@ const metaData = reactive<MetaData>({
   base64Image: '',
   base64Logo: ''
 })
+
+const config = useRuntimeConfig()
+
+const apiPrefix = computed(() => {
+  return config.NODE_ENV === 'development'
+    ? API_PREFIX_NETLIFY
+    : API_PREFIX_VERCEL
+})
+
 const init = async () => {
   isLoading.value = true
 
-  const { data } = (await axios.get(`${API_PREFIX}${props.url}`)) as {
+  const { data } = (await axios.get(`${apiPrefix.value}${props.url}`)) as {
     data: MetaData
   }
   // fetch data from server/api
@@ -207,7 +213,8 @@ const init = async () => {
     metaData.publisher = data.publisher
     metaData.base64Image = base64Image
   } else {
-    metaData.description = '🪄 Turn any link into a stylish visual web bookmark, one-click to copy the beautiful web bookmark image.'
+    metaData.description =
+      '🪄 Turn any link into a stylish visual web bookmark, one-click to copy the beautiful web bookmark image.'
     metaData.image = 'https://bookmark.style/preview.png'
     metaData.logo = 'https://bookmark.style/favicon.svg'
     metaData.title = 'bookmark.style: stylish your visual web bookmark'

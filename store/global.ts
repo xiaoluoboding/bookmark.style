@@ -11,18 +11,18 @@ export const useGlobalStore = defineStore({
       selectedGradientBgName: 'OCEANIC',
       gradientAngle: 'br',
       gradientGrainy: false,
-      padding: 64,
+      padding: 32,
       wrapperRoundedCorner: '2xl',
       bookmarkRoundedCorner: 'lg',
       isHorizontal: false,
-      showQRCode: true,
-    },
+      showQRCode: true
+    }
   }),
 
   getters: {
     gradientColorList(state) {
       const angle = state.setting.gradientAngle
-    
+
       return [
         {
           name: 'OCEANIC',
@@ -82,6 +82,6 @@ export const useGlobalStore = defineStore({
     },
     setGlobalSetting(payload: GlobalSetting) {
       Object.assign(this.setting, payload)
-    },
-  },
+    }
+  }
 })

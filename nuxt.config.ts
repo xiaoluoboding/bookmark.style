@@ -55,7 +55,6 @@ export default defineNuxtConfig({
       }
     ]
   },
-  modules: ['vue-plausible'],
   buildModules: [
     'nuxt-windicss',
     '@pinia/nuxt',
@@ -78,11 +77,8 @@ export default defineNuxtConfig({
       })
     ]
   },
-  plausible: {
-    domain: 'bookmark.style'
-  },
   publicRuntimeConfig: {
-    PLAUSIBLE_TOKEN: process.env.PLAUSIBLE_TOKEN,
+    NODE_ENV: process.env.NODE_ENV,
     CHATWOOT_WEBSITE_TOKEN: process.env.CHATWOOT_WEBSITE_TOKEN,
     UMAMI_WEBSITE_ID: process.env.UMAMI_WEBSITE_ID
   }

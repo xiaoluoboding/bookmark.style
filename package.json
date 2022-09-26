@@ -2,7 +2,7 @@
   "name": "bookmark.style",
   "displayName": "Bookmark Style",
   "description": "🪄 Turn any link into a stylish web visual bookmark, one-click to copy the beautiful web bookmark image.",
-  "private": false,
+  "author": "xiaoluoboding <xiaoluoboding@gmail.com>",
   "version": "0.2.0",
   "scripts": {
     "dev": "nuxi dev --port 3099",
@@ -10,6 +10,11 @@
     "start": "node .output/server/index.mjs",
     "preview": "nuxi preview"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/one-tab-group/bookmark.style"
+  },
+  "homepage": "https://bookmark.style",
   "devDependencies": {
     "@iconify/json": "^2.1.21",
     "@pinia/nuxt": "^0.1.8",
@@ -29,7 +34,6 @@
     "fancy-qrcode": "^0.1.0",
     "file-saver": "^2.0.5",
     "html2canvas": "^1.4.1",
-    "pinia": "^2.0.12",
-    "vue-plausible": "^1.3.1"
+    "pinia": "^2.0.12"
   }
 }
