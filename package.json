@@ -8,7 +8,9 @@
     "dev": "nuxi dev --port 3099",
     "build": "nuxi build",
     "start": "node .output/server/index.mjs",
-    "preview": "nuxi preview"
+    "preview": "nuxi preview",
+    "p:ish": "pnpm install --shamefully-hoist",
+    "p:up": "pnpm up"
   },
   "repository": {
     "type": "git",
@@ -17,15 +19,15 @@
   "homepage": "https://bookmark.style",
   "devDependencies": {
     "@iconify/json": "^2.1.21",
-    "@pinia/nuxt": "^0.1.8",
+    "@pinia/nuxt": "^0.4.0",
     "@types/dom-to-image": "^2.6.4",
     "@vueuse/components": "^8.2.5",
-    "@vueuse/core": "^8.2.0",
-    "@vueuse/nuxt": "^8.2.0",
-    "nuxt-windicss": "^2.2.8",
-    "nuxt3": "3.0.0-27480376.fdd38f9",
-    "unplugin-icons": "^0.14.1",
-    "unplugin-vue-components": "^0.18.5"
+    "@vueuse/core": "9.1.0",
+    "@vueuse/nuxt": "9.1.0",
+    "nuxt-windicss": "^2.5.0",
+    "nuxt": "3.0.0-rc.8",
+    "unplugin-icons": "^0.14.8",
+    "unplugin-vue-components": "^0.22.4"
   },
   "dependencies": {
     "axios": "^0.26.1",
@@ -34,6 +36,6 @@
     "fancy-qrcode": "^0.1.0",
     "file-saver": "^2.0.5",
     "html2canvas": "^1.4.1",
-    "pinia": "^2.0.12"
+    "pinia": "^2.0.18"
   }
 }
