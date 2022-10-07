@@ -1,5 +1,5 @@
 <template>
-<nav
+  <nav
     class="grid place-items-start space-x-20 z-10 w-full"
     sm="px-8"
     lg="relative w-[360px] px-0"
@@ -44,11 +44,12 @@
       <div class="feature-divider feature-divider--between"></div>
 
       <fieldset class="grid grid-cols-1 gap-y-4">
-        <figcaption class="flex items-center text-base">
-          Background
-        </figcaption>
+        <figcaption class="flex items-center text-base">Background</figcaption>
         <figure>
-          <section class="rounded-lg flex flex-wrap gap-2 justify-center items-center" lg="gap-1">
+          <section
+            class="rounded-lg flex flex-wrap gap-2 justify-center items-center"
+            lg="gap-1"
+          >
             <div
               class="relative w-16 h-16 rounded-lg cursor-pointer"
               lg="w-12 h-12"
@@ -75,9 +76,7 @@
         </figure>
         <figure>
           <div class="flex justify-between">
-            <label class="flex items-center text-sm mb-1"
-              >Gradient Angle</label
-            >
+            <label class="flex items-center text-sm mb-1">Gradient Angle</label>
             <section
               class="rounded-lg flex flex-wrap gap-1 bg-slate-200 relative gradient-border"
               dark="bg-slate-900 bg-opacity-80"
@@ -112,9 +111,7 @@
       <div class="feature-divider feature-divider--between"></div>
 
       <fieldset class="grid grid-cols-2 py-2">
-        <figcaption class="flex items-center text-base">
-          Padding
-        </figcaption>
+        <figcaption class="flex items-center text-base">Padding</figcaption>
         <figure>
           <input
             type="range"
@@ -140,7 +137,9 @@
               class="w-40"
               v-model:value="globalStore.setting.wrapperRoundedCorner"
               :options="state.roundedCornersOption"
-              @change="val => (globalStore.setting.wrapperRoundedCorner = val)"
+              @change="
+                (val) => (globalStore.setting.wrapperRoundedCorner = val)
+              "
             />
           </section>
         </figure>
@@ -152,7 +151,9 @@
               class="w-40"
               v-model:value="globalStore.setting.bookmarkRoundedCorner"
               :options="state.roundedCornersOption"
-              @change="val => (globalStore.setting.bookmarkRoundedCorner = val)"
+              @change="
+                (val) => (globalStore.setting.bookmarkRoundedCorner = val)
+              "
             />
           </section>
         </figure>
@@ -164,7 +165,9 @@
         <button
           class="btn-icon text-xl inline-block"
           title="$t('button.toggle_layout')"
-          @click="globalStore.setting.isHorizontal = !globalStore.setting.isHorizontal"
+          @click="
+            globalStore.setting.isHorizontal = !globalStore.setting.isHorizontal
+          "
         >
           <mdi-dock-right v-if="globalStore.setting.isHorizontal" />
           <mdi-dock-top v-else />
@@ -173,37 +176,12 @@
         <button
           class="btn-icon text-xl inline-block"
           title="$t('button.show_qrcode')"
-          @click="globalStore.setting.showQRCode = !globalStore.setting.showQRCode"
+          @click="
+            globalStore.setting.showQRCode = !globalStore.setting.showQRCode
+          "
         >
           <mdi:qrcode-plus v-if="globalStore.setting.showQRCode" />
           <mdi:qrcode-minus v-else />
-        </button>
-      </div>
-
-      <div class="feature-divider feature-divider--between"></div>
-
-      <div class="grid grid-cols-2 gap-2">
-        <button
-          class="btn btn-secondary btn-blur w-full"
-          :disabled="state.isCopying"
-          @click="handleCopyImage"
-        >
-          <div
-            class="w-5 h-5 flex justify-center items-center"
-            v-if="state.isCopying"
-          >
-            <SpinIcon />
-          </div>
-          <carbon:image-copy class="w-5 h-5" v-else />
-          <span class="ml-2 text-base">Copy</span>
-        </button>
-
-        <button
-          class="btn btn-primary btn-blur w-full"
-          @click="handleDownloadImage"
-        >
-          <carbon:download class="w-5 h-5" />
-          <span class="ml-2 text-base">Download</span>
         </button>
       </div>
     </div>
@@ -212,16 +190,11 @@
 
 <script lang="ts" setup>
 import { reactive, watch } from 'vue'
-import domtoimage from 'dom-to-image'
-import { copyBlobToClipboard } from 'copy-image-clipboard'
-import { saveAs } from 'file-saver'
 
-import { useRetinaImage } from '@/composables/useRetinaImage'
-import type { NotificationItem, GradientAngle } from '@/types'
-import { useGlobalStore, useNotificationStore } from '@/store'
+import type { GradientAngle } from '@/types'
+import { useGlobalStore } from '@/store'
 
 const globalStore = useGlobalStore()
-const { addNotification, removeNotification } = useNotificationStore()
 
 const state = reactive({
   isCopying: false,
@@ -243,60 +216,8 @@ const state = reactive({
       label: 'Large',
       value: '3xl'
     }
-  ],
+  ]
 })
-
-const handleCopyImage = async () => {
-  state.isCopying = true
-  const bookmarkEl = document.getElementById('bookmark') as HTMLImageElement
-  let timer: any = null
-
-  try {
-    const { imageBlob } = await useRetinaImage(bookmarkEl)
-
-    const newNotification: NotificationItem = {
-      style: 'SUCCESS',
-      title: 'Image copied to clipboard!'
-    }
-
-    addNotification(newNotification)
-
-    if (timer) clearTimeout(timer)
-
-    timer = setTimeout(() => {
-      removeNotification(newNotification)
-    }, 3333)
-
-    state.isCopying = false
-    return copyBlobToClipboard(imageBlob.value)
-  } catch (error) {
-    state.isCopying = false
-    console.log(error)
-  }
-}
-
-const handleDownloadImage = async () => {
-  const bookmarkEl = document.getElementById('bookmark') as HTMLImageElement
-
-  try {
-    const { imageBlob } = await useRetinaImage(bookmarkEl)
-
-    return saveAs(imageBlob.value, 'web-visual-bookmark@2x.png')
-  } catch (error) {
-    console.log(error)
-  }
-}
-
-const handleDownloadSVG = async () => {
-  const bookmarkEl = document.getElementById('bookmark') as HTMLImageElement
-  const dataURI = await domtoimage.toSvg(bookmarkEl)
-  if (dataURI) {
-    const link = document.createElement('a')
-    link.download = 'web-visual-bookmark.svg'
-    link.href = dataURI
-    link.click()
-  }
-}
 
 const handleSelectBackground = (name: string) => {
   globalStore.setting.selectedGradientBgName = name
@@ -330,10 +251,10 @@ watch(
   @apply bg-sky-500 rounded-full w-4 h-4;
   @apply transition-all duration-300 ease-in-out
   cursor: ew-resize;
-  box-shadow: 0 0 2px 0 rgba(14, 165, 233, 0.66),;
+  box-shadow: 0 0 2px 0 rgba(14, 165, 233, 0.66);
 }
 
-.range::-webkit-slider-runnable-track  {
+.range::-webkit-slider-runnable-track {
   -webkit-appearance: none;
   @apply bg-slate-200 border-slate-900 border shadow-transparent;
   @apply dark:bg-sky-700 dark:border-slate-200;
@@ -409,9 +330,9 @@ watch(
   height: calc(100% + var(--borderWidth) * 2);
   width: calc(100% + var(--borderWidth) * 2);
   background: conic-gradient(
-    rgba(6, 182, 212, .66),
+    rgba(6, 182, 212, 0.66),
     rgba(14, 165, 233, 0.66),
-    rgba(6, 182, 212, .66)
+    rgba(6, 182, 212, 0.66)
   );
   border-radius: calc(2 * var(--borderWidth));
   z-index: -1;

@@ -8,6 +8,7 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     'Carbon:cafe': typeof import('~icons/carbon/cafe')['default']
+    'Carbon:copy': typeof import('~icons/carbon/copy')['default']
     'Carbon:download': typeof import('~icons/carbon/download')['default']
     'Carbon:imageCopy': typeof import('~icons/carbon/image-copy')['default']
     'Carbon:logoTwitter': typeof import('~icons/carbon/logo-twitter')['default']
@@ -26,6 +27,7 @@ declare module '@vue/runtime-core' {
     'Mdi:heart': typeof import('~icons/mdi/heart')['default']
     'Mdi:qrcodeMinus': typeof import('~icons/mdi/qrcode-minus')['default']
     'Mdi:qrcodePlus': typeof import('~icons/mdi/qrcode-plus')['default']
+    'Mdi:twitter': typeof import('~icons/mdi/twitter')['default']
     MdiDockRight: typeof import('~icons/mdi/dock-right')['default']
     MdiDockTop: typeof import('~icons/mdi/dock-top')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

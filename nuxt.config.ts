@@ -22,7 +22,7 @@ export default defineNuxtConfig({
       },
       { property: 'og:image', content: 'https://bookmark.style/preview.png' },
       { property: 'og:url', content: 'https://bookmark.style' },
-      { property: 'og:stie_name', content: 'Bookmark Style' },
+      { property: 'og:site_name', content: 'Bookmark Style' },
       { property: 'og:image:width', content: '1200' },
       { property: 'og:image:height', content: '900' },
       {
