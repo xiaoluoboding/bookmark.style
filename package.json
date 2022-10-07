@@ -3,12 +3,13 @@
   "displayName": "Bookmark Style",
   "description": "🪄 Turn any link into a stylish web visual bookmark, one-click to copy the beautiful web bookmark image.",
   "author": "xiaoluoboding <xiaoluoboding@gmail.com>",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "scripts": {
     "dev": "nuxi dev --port 3099",
     "build": "nuxi build",
     "start": "node .output/server/index.mjs",
     "preview": "nuxi preview",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "p:ish": "pnpm install --shamefully-hoist",
     "p:up": "pnpm up"
   },
