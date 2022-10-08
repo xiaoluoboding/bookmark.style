@@ -71,7 +71,7 @@ const state = reactive({
 })
 
 const markdownCode = computed(() => {
-  return `[![Bookmark Style Card](https://metafy-svg.vercel.app/api?url=${globalStore.setting.bookmarkLink})](${globalStore.setting.bookmarkLink})`
+  return `[![Bookmark Style Card](https://svg.bookmark.style/api?url=${globalStore.setting.bookmarkLink})](${globalStore.setting.bookmarkLink})`
 })
 
 const { copy, copied } = useClipboard({

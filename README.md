@@ -52,7 +52,24 @@ When you click on the bookmarklet, it will redirect the page you're on to the [b
 
 [bookmark.style](https://bookmark.style) will auto-parse the URL and render the visual bookmark.
 
-## Setup
+## Render In README.md
+
+You can render the bookmark.style card as a SVG in the GitHub README.md now.
+
+### Code
+
+```markdown
+[![onetab.group](https://svg.bookmark.style/api?url=https://onetab.group&mode=light)](https://onetab.group)
+```
+
+### Preview
+
+|  Card Style  |                                          Light Mode                                          |                                          Dark Mode                                          |
+| :----------: | :------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------: |
+| Twitter Like |          ![](https://svg.bookmark.style/api?url=https://bookmark.style&mode=light)           |          ![](https://svg.bookmark.style/api?url=https://bookmark.style&mode=dark)           |
+| Notion Like  | ![](https://svg.bookmark.style/api?url=https://tech-stack.tools&mode=light&style=horizontal) | ![](https://svg.bookmark.style/api?url=https://tech-stack.tools&mode=dark&style=horizontal) |
+
+## Development Setup
 
 ### Install
 
