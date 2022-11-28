@@ -3,7 +3,7 @@
   "displayName": "Bookmark Style",
   "description": "🪄 Turn any link into a stylish web visual bookmark, one-click to copy the beautiful web bookmark image.",
   "author": "xiaoluoboding <xiaoluoboding@gmail.com>",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "scripts": {
     "dev": "nuxi dev --port 3099",
     "build": "nuxi build",
@@ -19,24 +19,24 @@
   },
   "homepage": "https://bookmark.style",
   "devDependencies": {
-    "@iconify/json": "^2.1.21",
-    "@pinia/nuxt": "^0.4.0",
+    "@iconify/json": "^2.1.144",
+    "@pinia/nuxt": "^0.4.6",
     "@types/dom-to-image": "^2.6.4",
-    "@vueuse/components": "^8.2.5",
-    "@vueuse/core": "9.1.0",
-    "@vueuse/nuxt": "9.1.0",
-    "nuxt-windicss": "^2.5.0",
-    "nuxt": "3.0.0-rc.8",
-    "unplugin-icons": "^0.14.8",
-    "unplugin-vue-components": "^0.22.4"
+    "@vueuse/components": "^9.6.0",
+    "@vueuse/core": "9.6.0",
+    "@vueuse/nuxt": "9.6.0",
+    "nuxt-windicss": "^2.6.0",
+    "nuxt": "^3.0.0",
+    "unplugin-icons": "^0.14.14",
+    "unplugin-vue-components": "^0.22.11"
   },
   "dependencies": {
-    "axios": "^0.26.1",
+    "axios": "^1.2.0",
     "copy-image-clipboard": "^2.1.2",
     "dom-to-image": "^2.6.0",
     "fancy-qrcode": "^0.1.0",
     "file-saver": "^2.0.5",
     "html2canvas": "^1.4.1",
-    "pinia": "^2.0.18"
+    "pinia": "^2.0.27"
   }
 }

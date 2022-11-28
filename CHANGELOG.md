@@ -1,3 +1,12 @@
+# [1.0.0](https://github.com/one-tab-group/bookmark.style/compare/v0.3.0...v1.0.0) (2022-11-28)
+
+
+### Features
+
+* rename the service ([ebcdf84](https://github.com/one-tab-group/bookmark.style/commit/ebcdf840e19a20f844ec89c50edbca7adf6cab1f))
+
+
+
 # [0.3.0](https://github.com/one-tab-group/bookmark.style/compare/v0.2.0...v0.3.0) (2022-10-07)
 
 
