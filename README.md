@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/one-tab-group/bookmark.style">
-    <img src="/public/favicon.svg" width="152">
+    <img src="/public/favicon.png" width="152">
   </a>
   <h3 align="center">
     <a href="https://github.com/one-tab-group/bookmark.style">
