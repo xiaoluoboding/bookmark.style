@@ -20,7 +20,7 @@
   "homepage": "https://bookmark.style",
   "devDependencies": {
     "@iconify/json": "^2.1.144",
-    "@pinia/nuxt": "^0.4.6",
+    "@pinia/nuxt": "^0.4.5",
     "@types/dom-to-image": "^2.6.4",
     "@vueuse/components": "^9.6.0",
     "@vueuse/core": "9.6.0",
@@ -37,6 +37,6 @@
     "fancy-qrcode": "^0.1.0",
     "file-saver": "^2.0.5",
     "html2canvas": "^1.4.1",
-    "pinia": "^2.0.27"
+    "pinia": "^2.0.26"
   }
 }
