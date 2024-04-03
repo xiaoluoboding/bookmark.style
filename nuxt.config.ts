@@ -49,8 +49,8 @@ export default defineNuxtConfig({
         {
           async: true,
           defer: true,
-          'data-website-id': process.env.UMAMI_WEBSITE_ID,
-          src: 'https://analytics.bookmark.style/umami.js'
+          'data-domain': 'bookmark.style',
+          src: 'https://plausible.io/js/script.js'
         }
       ]
     }
