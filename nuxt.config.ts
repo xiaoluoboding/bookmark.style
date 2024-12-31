@@ -51,6 +51,11 @@ export default defineNuxtConfig({
           defer: true,
           'data-domain': 'bookmark.style',
           src: 'https://plausible.io/js/script.js'
+        },
+        {
+          defer: true,
+          'data-key': 'wyrtuR2TisSg6v6gGW/r/A',
+          src: 'https://analytics.ahrefs.com/analytics.js'
         }
       ]
     }
