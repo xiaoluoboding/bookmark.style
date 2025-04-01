@@ -75,7 +75,7 @@ import { vOnClickOutside } from '@vueuse/components'
 
 type SelectOption = {
   label: string
-  value: string | number
+  value: any
 }
 
 const props = defineProps({

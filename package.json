@@ -19,24 +19,26 @@
   },
   "homepage": "https://bookmark.style",
   "devDependencies": {
-    "@iconify/json": "^2.1.144",
-    "@pinia/nuxt": "^0.4.5",
-    "@types/dom-to-image": "^2.6.4",
-    "@vueuse/components": "^9.6.0",
+    "@iconify/json": "^2.2.322",
+    "@pinia/nuxt": "^0.4.11",
+    "@types/dom-to-image": "^2.6.7",
+    "@vueuse/components": "^9.13.0",
     "@vueuse/core": "9.6.0",
     "@vueuse/nuxt": "9.6.0",
-    "nuxt-windicss": "^2.6.0",
-    "nuxt": "^3.0.0",
-    "unplugin-icons": "^0.14.14",
-    "unplugin-vue-components": "^0.22.11"
+    "nuxt": "^3.16.1",
+    "nuxt-windicss": "^2.6.1",
+    "unplugin-icons": "^0.14.15",
+    "unplugin-vue-components": "^0.22.12",
+    "vue": "^3.5.13"
   },
   "dependencies": {
-    "axios": "^1.2.0",
+    "@types/node": "^22.13.14",
+    "axios": "^1.8.4",
     "copy-image-clipboard": "^2.1.2",
     "dom-to-image": "^2.6.0",
     "fancy-qrcode": "^0.1.0",
     "file-saver": "^2.0.5",
     "html2canvas": "^1.4.1",
-    "pinia": "^2.0.26"
+    "pinia": "^2.3.1"
   }
 }

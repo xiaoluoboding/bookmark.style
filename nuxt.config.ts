@@ -5,14 +5,14 @@ import IconsResolver from 'unplugin-icons/resolver'
 export default defineNuxtConfig({
   app: {
     head: {
-      title: 'bookmark.style: stylish your visual web bookmark',
+      title: 'Bookmark Style: Stylish your visual web bookmark',
       viewport:
         'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0',
       link: [{ rel: 'icon', type: 'image/*', href: '/favicon.svg' }],
       meta: [
         {
           property: 'og:title',
-          content: 'bookmark.style: stylish your visual web bookmark'
+          content: 'Bookmark Style: Stylish your visual web bookmark'
         },
         {
           property: 'og:description',
@@ -32,7 +32,7 @@ export default defineNuxtConfig({
         { property: 'twitter:site', content: 'Bookmark Style' },
         {
           property: 'twitter:title',
-          content: 'bookmark.style: stylish your visual web bookmark'
+          content: 'Bookmark Style: Stylish your visual web bookmark'
         },
         { property: 'twitter:card', content: 'summary_large_image' },
         {
@@ -60,16 +60,19 @@ export default defineNuxtConfig({
       ]
     }
   },
+
   modules: [
     'nuxt-windicss',
     '@pinia/nuxt',
     'unplugin-icons/nuxt',
     '@vueuse/nuxt'
   ],
+
   components: {
     global: true,
     dirs: ['~/components']
   },
+
   vite: {
     plugins: [
       ViteComponents({
@@ -82,11 +85,13 @@ export default defineNuxtConfig({
       })
     ]
   },
+
   runtimeConfig: {
     public: {
       NODE_ENV: process.env.NODE_ENV,
-      CHATWOOT_WEBSITE_TOKEN: process.env.CHATWOOT_WEBSITE_TOKEN,
       UMAMI_WEBSITE_ID: process.env.UMAMI_WEBSITE_ID
     }
-  }
+  },
+
+  compatibilityDate: '2025-04-01'
 })

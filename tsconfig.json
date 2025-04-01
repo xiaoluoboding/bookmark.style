@@ -2,11 +2,14 @@
   // https://v3.nuxtjs.org/concepts/typescript
   "extends": "./.nuxt/tsconfig.json",
   "compilerOptions": {
-    "types": [
-      "nuxt-windicss",
-      "unplugin-icons/types/vue",
-      "@pinia/nuxt",
-      "@nuxt/types"
-    ]
+    "module": "esnext",
+    "noImplicitAny": false,
+    "allowJs": true,
+    "checkJs": false,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"]
+    },
+    "types": ["node", "nuxt-windicss", "unplugin-icons/types/vue", "@pinia/nuxt"]
   }
 }

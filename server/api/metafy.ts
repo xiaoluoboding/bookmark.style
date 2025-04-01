@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { MetaData } from '@/types'
+import type { MetaData } from '@/types'
 
 // const API_PREFIX = 'https://metafy.vercel.app/api?url='
 const API_PREFIX = 'https://get-metafy.netlify.app/.netlify/functions/api?url='

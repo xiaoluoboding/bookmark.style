@@ -23,11 +23,13 @@
       </button>
     </div>
     <fieldset class="my-4">
-      <figcaption>Markdown</figcaption>
-      <figure
-        class="w-full p-4 my-4 rounded-lg whitespace-pre-wrap break-all bg-slate-200 dark:bg-slate-600"
-      >
-        <code class="text-sm">{{ markdownCode }}</code>
+      <figure>
+        <figcaption>Markdown</figcaption>
+        <div
+          class="w-full p-4 my-4 rounded-lg whitespace-pre-wrap break-all bg-slate-200 dark:bg-slate-600"
+        >
+          <code class="text-sm">{{ markdownCode }}</code>
+        </div>
       </figure>
     </fieldset>
     <div class="flex gap-4">

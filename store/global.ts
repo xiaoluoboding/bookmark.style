@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 
-import { GlobalState, GlobalSetting } from '@/types'
+import type { GlobalState, GlobalSetting } from '@/types'
 
 export const useGlobalStore = defineStore({
   id: 'global',

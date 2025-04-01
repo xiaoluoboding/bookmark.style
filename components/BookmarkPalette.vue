@@ -11,8 +11,8 @@
       border="~ light-100 !opacity-10 dark:light-50"
     >
       <fieldset class="grid grid-cols-1 gap-y-4">
-        <figcaption class="flex items-center text-base">URL</figcaption>
         <figure>
+          <figcaption class="flex items-center text-base">URL</figcaption>
           <div class="relative w-full">
             <div
               class=""
@@ -44,8 +44,8 @@
       <div class="feature-divider feature-divider--between"></div>
 
       <fieldset class="grid grid-cols-1 gap-y-4">
-        <figcaption class="flex items-center text-base">Background</figcaption>
         <figure>
+          <figcaption class="flex items-center text-base">Background</figcaption>
           <section
             class="rounded-lg flex flex-wrap gap-2 justify-center items-center"
             lg="gap-1"
@@ -91,7 +91,6 @@
         <figure>
           <div class="flex justify-between items-center">
             <label class="flex items-center text-sm mb-1">Grainy</label>
-
             <section class="rounded-lg flex flex-wrap gap-1">
               <div class="flex items-center h-5">
                 <input
@@ -111,8 +110,8 @@
       <div class="feature-divider feature-divider--between"></div>
 
       <fieldset class="grid grid-cols-2 py-2">
-        <figcaption class="flex items-center text-base">Padding</figcaption>
         <figure>
+          <figcaption class="flex items-center text-base">Padding</figcaption>
           <input
             type="range"
             min="0"
@@ -127,21 +126,23 @@
       <div class="feature-divider feature-divider--between"></div>
 
       <fieldset class="grid py-2 gap-2">
-        <figcaption class="flex items-center text-base">
-          Rounded Corners
-        </figcaption>
-        <figure class="flex justify-between items-center">
-          <label class="flex items-center text-sm">Wrapper</label>
-          <section class="rounded-lg flex flex-wrap gap-1">
-            <VbSelect
-              class="w-40"
-              v-model:value="globalStore.setting.wrapperRoundedCorner"
-              :options="state.roundedCornersOption"
-              @change="
-                (val) => (globalStore.setting.wrapperRoundedCorner = val)
-              "
-            />
-          </section>
+        <figure>
+          <figcaption class="flex items-center text-base">
+            Rounded Corners
+          </figcaption>
+          <div class="flex justify-between items-center">
+            <label class="flex items-center text-sm">Wrapper</label>
+            <section class="rounded-lg flex flex-wrap gap-1">
+              <VbSelect
+                class="w-40"
+                v-model:value="globalStore.setting.wrapperRoundedCorner"
+                :options="state.roundedCornersOption"
+                @change="
+                  (val) => (globalStore.setting.wrapperRoundedCorner = val)
+                "
+              />
+            </section>
+          </div>
         </figure>
 
         <figure class="flex justify-between items-center">

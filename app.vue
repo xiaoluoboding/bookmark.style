@@ -70,10 +70,6 @@
       </template>
     </div>
   </div>
-
-  <client-only>
-    <chatwoot />
-  </client-only>
 </template>
 
 <script lang="ts" setup>

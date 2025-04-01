@@ -44,7 +44,7 @@ import MdiPanBottomLeft from '~icons/mdi/pan-bottom-left'
 import MdiPanDown from '~icons/mdi/pan-down'
 import MdiPanBottomRight from '~icons/mdi/pan-bottom-right'
 
-import { GradientAngle } from '@/types'
+import type { GradientAngle } from '@/types'
 
 defineProps({
   value: {

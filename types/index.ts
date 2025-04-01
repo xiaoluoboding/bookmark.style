@@ -1,16 +1,25 @@
 export type CornerSize = 'none' | 'lg' | '2xl' | '3xl'
-export type GradientAngle = 'tl' | 't' | 'tr' | 'l' | 'none' | 'r' | 'bl' | 'b' | 'br'
+export type GradientAngle =
+  | 'tl'
+  | 't'
+  | 'tr'
+  | 'l'
+  | 'none'
+  | 'r'
+  | 'bl'
+  | 'b'
+  | 'br'
 
 export type GlobalSetting = {
-  bookmarkLink: string;
-  selectedGradientBgName: string;
-  gradientAngle: GradientAngle;
-  gradientGrainy: boolean;
-  padding: number;
-  wrapperRoundedCorner: CornerSize;
-  bookmarkRoundedCorner: CornerSize;
-  isHorizontal: boolean;
-  showQRCode: boolean;
+  bookmarkLink: string
+  selectedGradientBgName: string
+  gradientAngle: GradientAngle
+  gradientGrainy: boolean
+  padding: number
+  wrapperRoundedCorner: CornerSize
+  bookmarkRoundedCorner: CornerSize
+  isHorizontal: boolean
+  showQRCode: boolean
 }
 
 export type GlobalState = {
