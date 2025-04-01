@@ -23,7 +23,7 @@
       <figure>
         <figcaption>Markdown</figcaption>
         <div
-          class="w-full p-4 my-4 rounded-lg whitespace-pre-wrap break-all bg-neutral-200 dark:bg-neutral-800"
+          class="w-full p-4 my-4 rounded-lg whitespace-pre-wrap break-all bg-neutral-200 dark:bg-neutral-900/80"
         >
           <code class="text-sm">{{ markdownCode }}</code>
         </div>
