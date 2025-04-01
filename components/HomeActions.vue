@@ -59,7 +59,7 @@ import { useClipboard } from '@vueuse/core'
 
 import { useGlobalStore, useNotificationStore } from '@/store'
 import { useRetinaImage } from '@/composables/useRetinaImage'
-import { useConstants } from '~/composables/useConstants'
+import { useConstants } from '@/composables/useConstants'
 import type { NotificationItem } from '@/types'
 
 const globalStore = useGlobalStore()

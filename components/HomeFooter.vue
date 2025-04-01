@@ -6,7 +6,7 @@
     <div class="copyright flex flex-col justify-center items-center">
       <p>
         Code with ❤ & ☕️ by
-        <a class="text-neon" href="https://github.com/xiaoluoboding"
+        <a class="text-neon" href="https://x.com/robert_shaw_x"
           >@xiaoluoboding</a
         >
         <span> © {{ new Date().getFullYear() }}</span>
@@ -15,7 +15,7 @@
         <carbon:logo-twitter class="text-sky-500" />
         <span>
           <a
-            href="https://twitter.com/xiaoluoboding"
+            href="https://x.com/robert_shaw_x"
             class="text-neon"
             target="_blank"
           >

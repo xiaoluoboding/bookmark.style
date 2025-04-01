@@ -19,7 +19,7 @@
 
 ## Concepts
 
-This web app is built on top of [metafy](https://github.com/xiaoluoboding/metafy), which provides serverless api to fetch websites metadata easily and turn the metadata into the visual bookmark. like Twitter does.
+This web app is built on top of [metafy](https://github.com/xiaoluoboding/metafy), which provides serverless api to fetch websites metadata easily and turn the metadata into the visual bookmark. like Twitter(X) does.
 
 ## Articles
 
@@ -28,7 +28,7 @@ This web app is built on top of [metafy](https://github.com/xiaoluoboding/metafy
 ## Features
 
 - 🔮 Turn any given links into a stylish visual web bookmark
-- 🐦 Twitter card like
+- 🐦 Twitter(X) card like
 - 🔖 Notion web-bookmark like
 - 🖼️ Copy image to your clipboard
 - 💾 Download image to your computer.
@@ -66,7 +66,7 @@ You can render the bookmark.style card as a SVG in the GitHub README.md now.
 
 |  Card Style  |                                          Light Mode                                          |                                          Dark Mode                                          |
 | :----------: | :------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------: |
-| Twitter Like |          ![](https://svg.bookmark.style/api?url=https://bookmark.style&mode=light)           |          ![](https://svg.bookmark.style/api?url=https://bookmark.style&mode=dark)           |
+| Twitter(X) Like |          ![](https://svg.bookmark.style/api?url=https://bookmark.style&mode=light)           |          ![](https://svg.bookmark.style/api?url=https://bookmark.style&mode=dark)           |
 | Notion Like  | ![](https://svg.bookmark.style/api?url=https://tech-stack.tools&mode=light&style=horizontal) | ![](https://svg.bookmark.style/api?url=https://tech-stack.tools&mode=dark&style=horizontal) |
 
 ## Development Setup
