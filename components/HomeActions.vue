@@ -58,15 +58,13 @@ import FileSaver from 'file-saver'
 import { copyBlobToClipboard } from 'copy-image-clipboard'
 import { useClipboard } from '@vueuse/core'
 
-import { useGlobalStore, useNotificationStore } from '@/store'
+import { useGlobalStore } from '@/store'
 import { useRetinaImage } from '@/composables/useRetinaImage'
 import { useConstants } from '@/composables/useConstants'
-import type { NotificationItem } from '@/types'
 import { toast } from 'vue-sonner'
 
 const globalStore = useGlobalStore()
 const { TWITTER_SHARE_URL } = useConstants()
-const { addNotification, removeNotification } = useNotificationStore()
 
 const state = reactive({
   isCopying: false
@@ -83,23 +81,11 @@ const { copy, copied } = useClipboard({
 const handleCopyImage = async () => {
   state.isCopying = true
   const bookmarkEl = document.getElementById('bookmark') as HTMLImageElement
-  let timer: any = null
 
   try {
     const { imageBlob } = await useRetinaImage(bookmarkEl)
 
-    const newNotification: NotificationItem = {
-      style: 'SUCCESS',
-      title: 'Image copied to clipboard!'
-    }
-
-    addNotification(newNotification)
-
-    if (timer) clearTimeout(timer)
-
-    timer = setTimeout(() => {
-      removeNotification(newNotification)
-    }, 3333)
+    toast.success('Image copied to clipboard!')
 
     state.isCopying = false
     return copyBlobToClipboard(imageBlob.value)
