@@ -54,7 +54,7 @@
 
 <script lang="ts" setup>
 import { reactive } from 'vue'
-import { saveAs } from 'file-saver'
+import FileSaver from 'file-saver'
 import { copyBlobToClipboard } from 'copy-image-clipboard'
 import { useClipboard } from '@vueuse/core'
 
@@ -115,7 +115,7 @@ const handleDownloadImage = async () => {
   try {
     const { imageBlob } = await useRetinaImage(bookmarkEl)
 
-    return saveAs(imageBlob.value, 'web-visual-bookmark@2x.png')
+    return FileSaver.saveAs(imageBlob.value, 'web-visual-bookmark@2x.png')
   } catch (error) {
     console.log(error)
   }
