@@ -2,17 +2,19 @@
   <div class="mt-1 relative">
     <button
       type="button"
-      class="relative w-full bg-slate-100 bg-opacity-50 border border-slate-300 rounded-md shadow-sm pl-2 pr-6 py-1 text-left cursor-pointer focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 text-xs"
-      sm="text-sm"
-      lg="pl-3 pr-10 py-2"
-      dark="bg-slate-700 bg-opacity-40 border-slate-600 text-slate-200 focus:border-sky-500 focus:bg-sky-900 focus:ring-2 focus:ring-sky-900"
+      :class="cn(
+        'relative w-full bg-neutral-100 bg-opacity-50 border border-neutral-300 rounded-md shadow-sm pl-2 pr-6 py-1 text-left cursor-pointer focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 text-xs',
+        'sm:text-sm',
+        'lg:pl-3 lg:pr-10 lg:py-2',
+        'dark:bg-neutral-700 dark:bg-opacity-40 dark:border-neutral-600 dark:text-neutral-200 dark:focus:border-neutral-500 dark:focus:bg-neutral-900 dark:focus:ring-2 dark:focus:ring-neutral-900'
+      )"
       aria-haspopup="listbox"
       aria-expanded="true"
       aria-labelledby="listbox-label"
       @click="localState.showDropdown = !localState.showDropdown"
     >
       <span class="flex items-center">
-        <span class="block truncate text-slate-700" dark="text-slate-200">
+        <span :class="cn('block truncate text-neutral-700', 'dark:text-neutral-200')">
           {{ localState.selectedOption }}
         </span>
       </span>
@@ -20,14 +22,16 @@
         class="ml-3 absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none"
       >
         <!-- Heroicon name: solid/selector -->
-        <heroicons-solid:selector class="h-5 w-5 text-slate-400" />
+        <heroicons-solid:selector class="h-5 w-5 text-neutral-400" />
       </span>
     </button>
 
     <ul
-      class="absolute z-10 mt-1 w-full shadow-lg max-h-56 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto glass focus:outline-none sm:text-sm"
-      bg="!opacity-30 white dark:slate-800"
-      text="slate-800 dark:white"
+      :class="cn(
+        'absolute z-10 mt-1 w-full shadow-lg max-h-56 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto glass focus:outline-none sm:text-sm',
+        'bg-white bg-opacity-30 dark:bg-neutral-800',
+        'text-neutral-800 dark:text-white'
+      )"
       tabindex="-1"
       role="listbox"
       aria-labelledby="listbox-label"
@@ -36,15 +40,12 @@
       v-on-click-outside="handleCloseDropdown"
     >
       <li
-        class="cursor-pointer select-none relative py-2 pl-3 pr-9"
-        :class="[
-          {
-            'bg-slate-300 dark:bg-sky-900':
-              option.label === localState.selectedOption
-          }
-        ]"
-        text="slate-800 dark:white"
-        hover="bg-slate-300 dark:bg-sky-900"
+        :class="cn(
+          'cursor-pointer select-none relative py-2 pl-3 pr-9',
+          'text-neutral-800 dark:text-white',
+          'hover:bg-neutral-300 dark:hover:bg-neutral-900',
+          { 'bg-neutral-300 dark:bg-neutral-900': option.label === localState.selectedOption }
+        )"
         id="listbox-option-0"
         role="option"
         v-for="option in props.options"
@@ -57,7 +58,7 @@
           </span>
         </div>
         <span
-          class="text-sky-600 absolute inset-y-0 right-0 flex items-center pr-2"
+          class="text-neutral-600 absolute inset-y-0 right-0 flex items-center pr-2"
           v-if="option.label === localState.selectedOption"
         >
           <!-- Heroicon name: solid/check -->
@@ -72,6 +73,7 @@
 import type { PropType } from 'vue'
 import { reactive, computed } from 'vue'
 import { vOnClickOutside } from '@vueuse/components'
+import { cn } from '../lib/utils'
 
 type SelectOption = {
   label: string

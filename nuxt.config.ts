@@ -62,11 +62,13 @@ export default defineNuxtConfig({
   },
 
   modules: [
-    'nuxt-windicss',
     '@pinia/nuxt',
     'unplugin-icons/nuxt',
-    '@vueuse/nuxt'
+    '@vueuse/nuxt',
+    '@nuxtjs/tailwindcss'
   ],
+
+  css: ['~/assets/css/tailwind.css'],
 
   components: {
     global: true,

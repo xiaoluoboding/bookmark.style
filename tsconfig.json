@@ -10,6 +10,12 @@
     "paths": {
       "@/*": ["./*"]
     },
-    "types": ["node", "nuxt-windicss", "unplugin-icons/types/vue", "@pinia/nuxt"]
+    "types": [
+      "node",
+      "unplugin-icons/types/vue",
+      "@pinia/nuxt",
+      "vue",
+      "axios"
+    ]
   }
 }

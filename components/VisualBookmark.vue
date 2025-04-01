@@ -12,10 +12,9 @@
         class="relative transition-all duration-200 filter drop-shadow-2xl aspect-auto ease-linear"
         :class="[
           bookmarkClass,
-          selectedBackground,
           `rounded-${globalStore.setting.wrapperRoundedCorner}`
         ]"
-        :style="bookmarkBgStyle"
+        :style="[bookmarkBgStyle, selectedBackground]"
       >
         <img
           v-if="globalStore.setting.gradientGrainy"
@@ -68,12 +67,12 @@ const bookmarkClass = computed(() => {
 
 const selectedBackground = computed(() => {
   if (globalStore.setting.selectedGradientBgName) {
-    const idx = globalStore.gradientColorList.findIndex(
+    const gradient = globalStore.gradientColorList.find(
       (item) => item.name === globalStore.setting.selectedGradientBgName
-    )
-    return globalStore.gradientColorList[idx].class
+    ) || globalStore.gradientColorList[0];
+    return gradient.style;
   }
-  return globalStore.gradientColorList[0].class
+  return globalStore.gradientColorList[0].style;
 })
 </script>
 

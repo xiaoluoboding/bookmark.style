@@ -1,6 +1,6 @@
 <template>
   <svg
-    class="animate-spin box-content text-slate-700 dark:text-slate-200"
+    class="animate-spin box-content text-neutral-700 dark:text-neutral-200"
     width="32"
     height="32"
     viewBox="0 0 16 16"

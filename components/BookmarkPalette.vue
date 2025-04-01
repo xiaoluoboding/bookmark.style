@@ -1,22 +1,26 @@
 <template>
   <nav
-    class="grid place-items-start space-x-20 z-10 w-full"
-    sm="px-8"
-    lg="relative w-[360px] px-0"
-    text="slate-800 xl dark:slate-50"
+    :class="cn(
+      'grid place-items-start space-x-20 z-10 w-full',
+      'sm:px-8',
+      'lg:relative lg:w-[360px] lg:px-0',
+      'text-neutral-800 dark:text-neutral-50'
+    )"
   >
     <div
-      class="flex flex-col w-full glass bg-gradient-to-br from-slate-100 via-gray-100 to-stone-100 space-y-4 py-2 px-4 lg:py-4 rounded-xl inset-0"
-      dark="from-slate-800 via-sky-900 to-slate-800"
-      border="~ light-100 !opacity-10 dark:light-50"
+      :class="cn(
+        'flex flex-col w-full glass bg-gradient-to-br from-neutral-100 via-stone-100 to-neutral-100 space-y-4 py-2 px-4 lg:py-4 rounded-xl inset-0',
+        'dark:from-neutral-700 dark:via-zinc-900 dark:to-neutral-800'
+      )"
     >
       <fieldset class="grid grid-cols-1 gap-y-4">
         <figure>
           <figcaption class="flex items-center text-base">URL</figcaption>
           <div class="relative w-full">
             <div
-              class=""
-              lg="relative flex justify-center w-full mx-auto rounded-lg shadow-sm"
+              :class="cn(
+                'lg:relative lg:flex lg:justify-center lg:w-full lg:mx-auto lg:rounded-lg lg:shadow-sm'
+              )"
             >
               <div
                 class="absolute inset-y-0 left-0 px-3 flex items-center pointer-events-none"
@@ -29,9 +33,11 @@
                 type="text"
                 id="name"
                 name="name"
-                class="w-full rounded border text-sm outline-none px-10 py-1 leading-8 transition-colors duration-200 ease-in-out bg-slate-100 bg-opacity-50 border-slate-300 text-slate-700 focus:border-sky-500 focus:bg-white focus:ring-2 focus:ring-sky-200"
-                lg="py-2 rounded-lg"
-                dark="bg-slate-700 bg-opacity-40 border-slate-600 text-slate-100 focus:border-sky-500 focus:bg-sky-900 focus:ring-2 focus:ring-sky-900"
+                :class="cn(
+                  'w-full rounded border text-sm outline-none px-10 py-1 leading-8 transition-colors duration-200 ease-in-out bg-neutral-100 bg-opacity-50 border-neutral-300 text-neutral-700 focus:border-sky-500 focus:bg-white focus:ring-2 focus:ring-sky-200',
+                  'lg:py-2 lg:rounded-lg',
+                  'dark:bg-neutral-700 dark:bg-opacity-40 dark:border-neutral-600 dark:text-neutral-100 dark:focus:border-sky-500 dark:focus:bg-sky-900 dark:focus:ring-2 dark:focus:ring-sky-900'
+                )"
                 placeholder="Paste or type a web site URL"
                 v-model="state.localBookmarkLink"
                 @input="handleRenderBookmark"
@@ -47,29 +53,30 @@
         <figure>
           <figcaption class="flex items-center text-base">Background</figcaption>
           <section
-            class="rounded-lg flex flex-wrap gap-2 justify-center items-center"
-            lg="gap-1"
+            :class="cn(
+              'rounded-lg flex flex-wrap gap-2 justify-center items-center',
+              'lg:gap-1'
+            )"
           >
             <div
-              class="relative w-16 h-16 rounded-lg cursor-pointer"
-              lg="w-12 h-12"
               v-for="item in globalStore.gradientColorList"
               :key="item.name"
-              :class="[
-                item.class,
+              :style="item.style"
+              :class="cn(
+                'relative w-16 h-16 rounded-lg cursor-pointer lg:w-12 lg:h-12',
                 {
-                  'border border-2 border-white border-opacity-60':
-                    item.name === globalStore.setting.selectedGradientBgName
+                  'border-2 border-white border-opacity-60': item.name === globalStore.setting.selectedGradientBgName
                 }
-              ]"
+              )"
               @click="handleSelectBackground(item.name)"
             >
               <mdi:circle
-                class="absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%] duration-300 w-5 h-5 text-slate-900/20 scale-100 ease-in-out"
-                :class="{
-                  'scale-0 translate-y-0':
-                    item.name !== globalStore.setting.selectedGradientBgName
-                }"
+                :class="cn(
+                  'absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%] duration-300 w-5 h-5 text-neutral-900/20 scale-100 ease-in-out',
+                  {
+                    'scale-0 translate-y-0': item.name !== globalStore.setting.selectedGradientBgName
+                  }
+                )"
               />
             </div>
           </section>
@@ -78,8 +85,10 @@
           <div class="flex justify-between">
             <label class="flex items-center text-sm mb-1">Gradient Angle</label>
             <section
-              class="rounded-lg flex flex-wrap gap-1 bg-slate-200 relative gradient-border"
-              dark="bg-slate-900 bg-opacity-80"
+              :class="cn(
+                'rounded-lg flex flex-wrap gap-1 bg-neutral-200 relative gradient-border',
+                'dark:bg-neutral-900 dark:bg-opacity-80'
+              )"
             >
               <GradientAngleSelector
                 v-model:value="globalStore.setting.gradientAngle"
@@ -96,8 +105,10 @@
                 <input
                   aria-describedby="remember"
                   type="checkbox"
-                  class="w-4 h-4 cursor-pointer bg-slate-50 rounded border border-gray-300 focus:ring-2 focus:ring-sky-300"
-                  dark="bg-slate-700 border-slate-600 focus:ring-sky-600 ring-offset-slate-800"
+                  :class="cn(
+                    'w-4 h-4 cursor-pointer bg-neutral-50 rounded border border-gray-300 focus:ring-2 focus:ring-sky-300',
+                    'dark:bg-neutral-700 dark:border-neutral-600 dark:focus:ring-sky-600 dark:ring-offset-neutral-800'
+                  )"
                   required
                   v-model="globalStore.setting.gradientGrainy"
                 />
@@ -109,17 +120,19 @@
 
       <div class="feature-divider feature-divider--between"></div>
 
-      <fieldset class="grid grid-cols-2 py-2">
-        <figure>
-          <figcaption class="flex items-center text-base">Padding</figcaption>
-          <input
-            type="range"
-            min="0"
-            max="128"
-            step="2"
-            class="w-full range"
-            v-model="globalStore.setting.padding"
-          />
+      <fieldset class="grid grid-cols-1 py-2 w-full">
+        <figure class="flex justify-between items-center gap-2 w-full">
+          <figcaption class="w-1/2 flex items-center text-base">Padding</figcaption>
+          <div class="w-1/2">
+            <input
+              type="range"
+              min="0"
+              max="128"
+              step="2"
+              class="w-full range"
+              v-model="globalStore.setting.padding"
+            />
+          </div>
         </figure>
       </fieldset>
 
@@ -137,9 +150,7 @@
                 class="w-40"
                 v-model:value="globalStore.setting.wrapperRoundedCorner"
                 :options="state.roundedCornersOption"
-                @change="
-                  (val) => (globalStore.setting.wrapperRoundedCorner = val)
-                "
+                @change="(val) => (globalStore.setting.wrapperRoundedCorner = val)"
               />
             </section>
           </div>
@@ -152,9 +163,7 @@
               class="w-40"
               v-model:value="globalStore.setting.bookmarkRoundedCorner"
               :options="state.roundedCornersOption"
-              @change="
-                (val) => (globalStore.setting.bookmarkRoundedCorner = val)
-              "
+              @change="(val) => (globalStore.setting.bookmarkRoundedCorner = val)"
             />
           </section>
         </figure>
@@ -166,9 +175,7 @@
         <button
           class="btn-icon text-xl inline-block"
           title="$t('button.toggle_layout')"
-          @click="
-            globalStore.setting.isHorizontal = !globalStore.setting.isHorizontal
-          "
+          @click="globalStore.setting.isHorizontal = !globalStore.setting.isHorizontal"
         >
           <mdi-dock-right v-if="globalStore.setting.isHorizontal" />
           <mdi-dock-top v-else />
@@ -177,9 +184,7 @@
         <button
           class="btn-icon text-xl inline-block"
           title="$t('button.show_qrcode')"
-          @click="
-            globalStore.setting.showQRCode = !globalStore.setting.showQRCode
-          "
+          @click="globalStore.setting.showQRCode = !globalStore.setting.showQRCode"
         >
           <mdi:qrcode-plus v-if="globalStore.setting.showQRCode" />
           <mdi:qrcode-minus v-else />
@@ -191,7 +196,7 @@
 
 <script lang="ts" setup>
 import { reactive, watch } from 'vue'
-
+import { cn } from '@/lib/utils'
 import type { GradientAngle } from '@/types'
 import { useGlobalStore } from '@/store'
 
@@ -249,16 +254,16 @@ watch(
 
 .range::-webkit-slider-thumb {
   -webkit-appearance: none;
-  @apply bg-sky-500 rounded-full w-4 h-4;
-  @apply transition-all duration-300 ease-in-out
+  @apply bg-neutral-700 dark:bg-neutral-300 rounded-full w-4 h-4;
+  @apply transition-all duration-300 ease-in-out;
   cursor: ew-resize;
   box-shadow: 0 0 2px 0 rgba(14, 165, 233, 0.66);
 }
 
 .range::-webkit-slider-runnable-track {
   -webkit-appearance: none;
-  @apply bg-slate-200 border-slate-900 border shadow-transparent;
-  @apply dark:bg-sky-700 dark:border-slate-200;
+  @apply bg-neutral-200 border-neutral-900 border shadow-transparent;
+  @apply dark:bg-neutral-700 dark:border-neutral-200;
 }
 
 .range:focus {
@@ -292,31 +297,6 @@ watch(
 
 .rounded-3xl {
   border-radius: 1.5rem;
-}
-
-.bg-gradient-to-t {
-  background-image: linear-gradient(to top, var(--tw-gradient-stops));
-}
-.bg-gradient-to-tr {
-  background-image: linear-gradient(to top right, var(--tw-gradient-stops));
-}
-.bg-gradient-to-r {
-  background-image: linear-gradient(to right, var(--tw-gradient-stops));
-}
-.bg-gradient-to-br {
-  background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
-}
-.bg-gradient-to-b {
-  background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
-}
-.bg-gradient-to-bl {
-  background-image: linear-gradient(to bottom left, var(--tw-gradient-stops));
-}
-.bg-gradient-to-l {
-  background-image: linear-gradient(to left, var(--tw-gradient-stops));
-}
-.bg-gradient-to-tl {
-  background-image: linear-gradient(to top left, var(--tw-gradient-stops));
 }
 
 .gradient-border {

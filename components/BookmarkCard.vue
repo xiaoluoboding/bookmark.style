@@ -1,19 +1,21 @@
 <template>
-  <figure
-    class="web-bookmark-card relative inset-0 overflow-hidden text-left transition-all duration-300 ease-out max-w-screen"
-    :class="[bookmarkClass, horizontal ? 'lg:w-[720px]' : 'lg:w-120']"
+  <div
+    class="relative overflow-hidden transition-all duration-300 ease-out"
+    :class="[
+      bookmarkClass,
+      horizontal ? 'lg:w-[720px]' : 'lg:w-[480px]',
+      isLoading ? 'opacity-75' : ''
+    ]"
   >
-    <slot />
     <a
       v-if="!isLoading"
-      class="flex flex-wrap text-current no-underline hover:no-underline inset-0 backdrop-filter backdrop-blur-lg backdrop-saturate-[180%] filter drop-shadow-xl transition-all duration-300 ease-out z-10"
-      bg="!opacity-75 white dark:slate-800"
+      class="flex flex-wrap text-current no-underline hover:no-underline inset-0 filter backdrop-blur-lg backdrop-saturate-[180%] transition-all duration-300 ease-out z-10 bg-white/70 dark:bg-neutral-800/70"
       :class="[cover === 'right' ? 'flex-row-reverse' : 'flex-row']"
       :href="metaData.url"
       target="_blank"
     >
       <div
-        class="relative flex order-1 min-w-1/2 w-full flex-grow-[999] basis-[0]"
+        class="relative flex order-1 min-w-[50%] w-full flex-grow-[999] basis-[0]"
         :class="[qrcode ? 'justify-between !pl-4' : 'p-4']"
       >
         <div
@@ -21,16 +23,14 @@
           :class="qrcode && metaData.url ? 'has-qrcode' : 'w-full'"
         >
           <div
-            class="items-center font-semibold line-clamp-1"
+            class="items-center font-semibold line-clamp-1 text-neutral-800 dark:text-neutral-100/90"
             :class="[horizontal ? 'text-sm' : 'text-base']"
-            text="slate-800 dark:white"
           >
             <span>{{ metaData.title }}</span>
           </div>
           <div
-            class="items-center mt-3 line-clamp-2"
+            class="items-center mt-3 line-clamp-2 text-neutral-800 dark:text-neutral-300/90"
             :class="[horizontal ? 'text-xs' : 'text-sm']"
-            text="slate-800 dark:slate-400"
           >
             {{ metaData.description }}
           </div>
@@ -39,13 +39,13 @@
               <img
                 v-if="metaData.logo"
                 :src="metaData.logo"
-                class="inline-block align-text-bottom mr-2 h-4 w-4"
+                class="inline-block align-text-bottom mr-2"
                 :class="[horizontal ? 'h-3.5 w-3.5' : 'h-4 w-4']"
+                alt="Site logo"
               />
               <span
-                class="truncate"
+                class="truncate text-neutral-800 dark:text-neutral-300/90"
                 :class="[horizontal ? 'text-xs' : 'text-sm']"
-                text="slate-800 dark:slate-400"
               >
                 {{ metaData.author || metaData.publisher || metaData.url }}
               </span>
@@ -59,7 +59,7 @@
       </div>
       <div
         v-if="metaData.image"
-        class="relative min-w-1/3 max-h-full"
+        class="relative min-w-[36%] max-h-full"
         :class="[
           horizontal ? 'h-32 basis-[13.5rem]' : 'h-64 basis-[16rem] flex-grow'
         ]"
@@ -67,16 +67,16 @@
         <img
           class="relative m-0 w-full h-full align-bottom object-cover"
           :src="metaData.base64Image || metaData.image"
+          :alt="metaData.title"
         />
       </div>
     </a>
     <div
       v-else
-      class="text-center p-20 flex flex-col justify-center items-center !bg-opacity-30 backdrop-filter backdrop-blur-lg backdrop-saturate-[180%] filter drop-shadow-xl transition-all duration-300 ease-out z-10"
-      bg="!opacity-75 white dark:slate-800"
+      class="text-center p-20 flex flex-col justify-center items-center backdrop-blur-lg backdrop-saturate-[180%] transition-all duration-300 ease-out z-10"
     >
       <svg
-        class="animate-spin box-content text-slate-700 dark:text-slate-200"
+        class="animate-spin box-content"
         width="32"
         height="32"
         viewBox="0 0 16 16"
@@ -100,65 +100,29 @@
           vector-effect="non-scaling-stroke"
         ></path>
       </svg>
-      <span class="mt-4 text-slate-800 dark:text-slate-200">
-        Styling your visual web bookmark...
-      </span>
+      <span class="mt-4"> Styling your visual web bookmark... </span>
     </div>
-  </figure>
+  </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { ref, reactive, computed, watch } from 'vue'
 import axios from 'axios'
-
 import FancyQRCode from './FancyQRCode.vue'
 import { getBase64Image } from '@/utils'
+import type { MetaData, BookmarkProps } from '@/types/bookmark'
 
 const API_PREFIX_VERCEL = 'https://metafy.vercel.app/api?url='
 const API_PREFIX_NETLIFY =
   'https://get-metafy.netlify.app/.netlify/functions/api?url='
 
-type MetaData = {
-  title: string
-  description: string
-  url: string
-  image: string
-  logo: string
-  author: string
-  publisher: string
-  base64Image: string
-  base64Logo: string
-}
-
-const props = defineProps({
-  /**
-   * find the special alias and render it
-   */
-  url: { type: String, require: true, default: '' },
-  /**
-   * control the bookmark size
-   */
-  size: { type: String, default: 'medium' },
-  /**
-   * control the bookmark corner
-   */
-  corner: { type: String, default: 'xl' },
-  /**
-   * the image render position of bookmark
-   */
-  cover: { type: String, default: 'right' },
-  /**
-   * when to show card shadows
-   */
-  shadow: { type: String, default: 'always' },
-  /**
-   * whether bookmark card is horizontal or vertical
-   */
-  horizontal: { type: Boolean, default: false },
-  /**
-   * whether bookmark card is show qrcode
-   */
-  qrcode: { type: Boolean, default: true }
+const props = withDefaults(defineProps<BookmarkProps>(), {
+  size: 'medium',
+  corner: 'xl',
+  cover: 'right',
+  shadow: 'always',
+  horizontal: false,
+  qrcode: true
 })
 
 const isLoading = ref(false)
@@ -186,42 +150,48 @@ const apiPrefix = computed(() => {
 const init = async () => {
   isLoading.value = true
 
-  const { data } = (await axios.get(`${apiPrefix.value}${props.url}`)) as {
-    data: MetaData
-  }
-  // fetch data from server/api
-  // const { data } = await useAsyncData('/api/metafy', () => {
-  //   return $fetch('/api/metafy', { params: { url: props.url } })
-  // })
-
-  if (data) {
-    let base64Image = ''
-    if (data?.image) {
-      try {
-        base64Image = await getBase64Image(data.image)
-      } catch (error) {
-        console.log(`Oops, something went wrong: Maybe caused by CORS!!!`)
-      }
+  try {
+    const { data } = (await axios.get(`${apiPrefix.value}${props.url}`)) as {
+      data: MetaData
     }
 
-    metaData.title = data.title
-    metaData.description = data.description
-    metaData.url = props.url as string
-    metaData.image = data.image
-    metaData.logo = data.logo
-    metaData.author = data.author
-    metaData.publisher = data.publisher
-    metaData.base64Image = base64Image
-  } else {
+    if (data) {
+      let base64Image = ''
+      if (data?.image) {
+        try {
+          base64Image = await getBase64Image(data.image)
+        } catch (error) {
+          console.log(`Oops, something went wrong: Maybe caused by CORS!!!`)
+        }
+      }
+
+      metaData.title = data.title
+      metaData.description = data.description
+      metaData.url = props.url
+      metaData.image = data.image
+      metaData.logo = data.logo
+      metaData.author = data.author
+      metaData.publisher = data.publisher
+      metaData.base64Image = base64Image
+    } else {
+      metaData.description =
+        '🪄 Turn any link into a stylish visual web bookmark, one-click to copy the beautiful web bookmark image.'
+      metaData.image = 'https://bookmark.style/preview.png'
+      metaData.logo = 'https://bookmark.style/favicon.svg'
+      metaData.title = 'bookmark.style: stylish your visual web bookmark'
+      metaData.url = props.url
+    }
+  } catch (error) {
+    console.error('Error fetching metadata:', error)
     metaData.description =
       '🪄 Turn any link into a stylish visual web bookmark, one-click to copy the beautiful web bookmark image.'
     metaData.image = 'https://bookmark.style/preview.png'
     metaData.logo = 'https://bookmark.style/favicon.svg'
     metaData.title = 'bookmark.style: stylish your visual web bookmark'
     metaData.url = props.url
+  } finally {
+    isLoading.value = false
   }
-
-  isLoading.value = false
 }
 
 const bookmarkClass = computed(() => {
@@ -251,7 +221,15 @@ watch(
 </script>
 
 <style scoped>
-.has-qrcode {
-  width: calc(100% - 8rem);
+.is-always-shadow {
+  @apply shadow-lg;
+}
+
+.is-hover-shadow {
+  @apply hover:shadow-lg transition-shadow duration-300;
+}
+
+.is-never-shadow {
+  @apply shadow-none;
 }
 </style>

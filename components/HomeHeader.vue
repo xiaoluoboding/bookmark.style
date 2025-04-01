@@ -131,34 +131,40 @@
       </a>
     </div>
 
-    <div class="flex items-center justify-end gap-4">
-      <button
-        class="btn-icon !dark:bg-opacity-80 dark:hover:bg-slate-900"
+    <div class="flex items-center justify-end gap-2">
+      <Button
+        variant="ghost"
+        size="icon"
+        class="!dark:bg-opacity-80 dark:hover:bg-neutral-900"
         title="Toggle Dark Mode"
         @click="(e) => toggleDark()"
       >
-        <carbon-moon class="w-8 h-8" v-if="isDark" />
-        <carbon-sun class="w-8 h-8" v-else />
-      </button>
-      <a
-        class="btn-icon !dark:bg-opacity-80 dark:hover:bg-slate-900"
+        <carbon-moon class="w-6 h-6" v-if="isDark" />
+        <carbon-sun class="w-6 h-6" v-else />
+      </Button>
+      <Button
+        as="a"
+        variant="ghost"
+        size="icon"
+        class="!dark:bg-opacity-80 dark:hover:bg-neutral-900"
         rel="noreferrer"
         href="https://github.com/one-tab-group/bookmark.style"
         target="_blank"
         title="GitHub"
       >
-        <carbon-logo-github class="h-8 w-8" />
-      </a>
+        <carbon-logo-github class="w-6 h-6" />
+      </Button>
     </div>
   </header>
 </template>
 
 <script lang="ts" setup>
 import { isDark, toggleDark } from '@/composables/useDark'
+import { Button } from '@/components/ui/button'
 </script>
 
 <style>
 #logo-bookmark {
-  @apply fill-slate-700 stroke-slate-700 dark:fill-white dark:stroke-white;
+  @apply fill-neutral-700 stroke-neutral-700 dark:fill-white dark:stroke-white;
 }
 </style>

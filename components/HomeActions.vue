@@ -1,54 +1,53 @@
 <template>
-  <div class="dark:text-white w-136 mt-4">
-    <div class="flex gap-4">
-      <button
-        class="btn btn-primary btn-blur w-full border"
-        @click="handleCopyImage"
-      >
+  <div class="dark:text-white w-[544px] mt-4">
+    <div class="grid grid-cols-2 gap-4">
+      <RainbowButton class="flex gap-2 items-center" @click="handleCopyImage">
         <div
           class="w-5 h-5 flex justify-center items-center"
           v-if="state.isCopying"
         >
           <SpinIcon />
         </div>
-        <carbon:image-copy class="w-5 h-5" v-else />
-        <span class="ml-2 text-base">Copy Image</span>
-      </button>
-      <button
-        class="btn btn-primary btn-blur w-full border"
+        <carbon:image-copy v-else />
+        <span class="text-base">Copy Image</span>
+      </RainbowButton>
+      <RainbowButton
+        class="flex gap-2 items-center"
         @click="handleDownloadImage"
       >
-        <carbon:download class="w-5 h-5" />
-        <span class="ml-2 text-base">Download Image</span>
-      </button>
+        <carbon:download />
+        <span class="text-base">Download Image</span>
+      </RainbowButton>
     </div>
     <fieldset class="my-4">
       <figure>
         <figcaption>Markdown</figcaption>
         <div
-          class="w-full p-4 my-4 rounded-lg whitespace-pre-wrap break-all bg-slate-200 dark:bg-slate-600"
+          class="w-full p-4 my-4 rounded-lg whitespace-pre-wrap break-all bg-neutral-200 dark:bg-neutral-800"
         >
           <code class="text-sm">{{ markdownCode }}</code>
         </div>
       </figure>
     </fieldset>
-    <div class="flex gap-4">
-      <button
-        class="btn btn-secondary btn-blur w-full border"
-        @click="(e) => copy()"
+    <div class="grid grid-cols-2 gap-4">
+      <RainbowButton
+        class="flex gap-2 items-center"
+        @click="handleCopyMarkdown"
+        secondary
       >
-        <carbon:copy class="w-5 h-5" />
-        <span class="ml-2 text-base" v-if="!copied">Copy to README.md</span>
-        <span class="ml-2 text-base" v-else>Copied!</span>
-      </button>
+        <carbon:copy />
+        <span class="text-base" v-if="!copied">Copy to README.md</span>
+        <span class="text-base" v-else>Copied!</span>
+      </RainbowButton>
 
-      <button
-        class="btn btn-secondary btn-blur w-full border"
+      <RainbowButton
+        class="flex gap-2 items-center"
         @click="(e) => handleShareToTwitter()"
+        secondary
       >
-        <mdi:twitter class="w-5 h-5" />
-        <span class="ml-2 text-base">Share on Twitter</span>
-      </button>
+        <mdi:twitter />
+        <span class="text-base">Share on Twitter</span>
+      </RainbowButton>
     </div>
   </div>
 </template>
@@ -63,6 +62,7 @@ import { useGlobalStore, useNotificationStore } from '@/store'
 import { useRetinaImage } from '@/composables/useRetinaImage'
 import { useConstants } from '@/composables/useConstants'
 import type { NotificationItem } from '@/types'
+import { toast } from 'vue-sonner'
 
 const globalStore = useGlobalStore()
 const { TWITTER_SHARE_URL } = useConstants()
@@ -145,5 +145,10 @@ const handleShareToTwitter = async () => {
   link.href = tweetShareLink
   link.target = '_blank'
   link.click()
+}
+
+const handleCopyMarkdown = () => {
+  copy()
+  toast.success('Copied to clipboard!')
 }
 </script>

@@ -1,7 +1,9 @@
 <template>
   <footer
-    class="fixed bottom-4 left-0 w-full flex justify-center items-center"
-    text="slate-900 dark:slate-300 opacity-60 sm"
+    :class="cn(
+      'fixed bottom-4 left-0 w-full flex justify-center items-center',
+      'text-neutral-900 dark:text-neutral-300 text-sm opacity-60'
+    )"
   >
     <div class="copyright flex flex-col justify-center items-center">
       <p>
@@ -48,3 +50,7 @@
     </div>
   </footer>
 </template>
+
+<script lang="ts" setup>
+import { cn } from '@/lib/utils'
+</script>

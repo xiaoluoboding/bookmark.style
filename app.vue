@@ -1,12 +1,11 @@
 <template>
   <div
-    class="h-full min-h-screen w-full min-w-screen bg-gradient-to-br from-slate-200 to-slate-50 m-0"
-    dark="from-slate-700 to-slate-900"
+    class="h-full min-h-screen w-full min-w-screen bg-gradient-to-br from-neutral-200 to-neutral-50 dark:from-neutral-700 dark:to-neutral-900 m-0"
   >
     <!-- bannder -->
     <div
-      class="fixed w-full px-4 py-2 text-white !bg-gradient-to-r"
-      :class="selectedBackground"
+      class="fixed w-full px-4 py-2 text-white"
+      :style="selectedBackground"
     >
       <p
         class="flex items-center justify-center text-sm font-medium !text-white"
@@ -69,12 +68,14 @@
         />
       </template>
     </div>
+    <Toaster rich-colors position="top-center" />
   </div>
 </template>
 
 <script lang="ts" setup>
 import { computed, onMounted } from 'vue'
 import { useUrlSearchParams } from '@vueuse/core'
+import { Toaster } from '@/components/ui/sonner'
 
 import { useGlobalStore, useNotificationStore } from '@/store'
 
@@ -84,12 +85,14 @@ const urlSearchParams = useUrlSearchParams('history')
 
 const selectedBackground = computed(() => {
   if (globalStore.setting.selectedGradientBgName) {
-    const idx = globalStore.gradientColorList.findIndex(
+    const gradient = globalStore.gradientColorList.find(
       (item) => item.name === globalStore.setting.selectedGradientBgName
-    )
-    return globalStore.gradientColorList[idx].class
+    ) || globalStore.gradientColorList[0];
+    
+    return gradient.style;
   }
-  return globalStore.gradientColorList[0].class
+  
+  return globalStore.gradientColorList[0].style;
 })
 
 onMounted(() => {
@@ -99,4 +102,60 @@ onMounted(() => {
 })
 </script>
 
-<style scoped></style>
+<style>
+/* Define CSS variables for Tailwind colors */
+:root {
+  /* Green */
+  --color-green-300: rgb(134, 239, 172);
+  
+  /* Blue */
+  --color-blue-500: rgb(59, 130, 246);
+  --color-blue-700: rgb(29, 78, 216);
+  --color-blue-800: rgb(30, 64, 175);
+  
+  /* Purple */
+  --color-purple-300: rgb(216, 180, 254);
+  --color-purple-600: rgb(147, 51, 234);
+  
+  /* Pink */
+  --color-pink-300: rgb(249, 168, 212);
+  --color-pink-500: rgb(236, 72, 153);
+  
+  /* Red */
+  --color-red-200: rgb(254, 202, 202);
+  --color-red-300: rgb(252, 165, 165);
+  --color-red-500: rgb(239, 68, 68);
+  
+  /* Yellow */
+  --color-yellow-100: rgb(254, 249, 195);
+  --color-yellow-200: rgb(254, 240, 138);
+  --color-yellow-500: rgb(234, 179, 8);
+  
+  /* Indigo */
+  --color-indigo-200: rgb(199, 210, 254);
+  --color-indigo-400: rgb(129, 140, 248);
+  
+  /* Sky */
+  --color-sky-400: rgb(56, 189, 248);
+  
+  /* Rose */
+  --color-rose-400: rgb(251, 113, 133);
+  
+  /* Lime */
+  --color-lime-200: rgb(217, 249, 157);
+  --color-lime-400: rgb(163, 230, 53);
+  
+  /* Teal */
+  --color-teal-200: rgb(153, 246, 228);
+  
+  /* Gray */
+  --color-gray-200: rgb(229, 231, 235);
+  --color-gray-400: rgb(156, 163, 175);
+  --color-gray-600: rgb(75, 85, 99);
+  --color-gray-700: rgb(55, 65, 81);
+  --color-gray-900: rgb(17, 24, 39);
+  
+  /* Black */
+  --color-black: rgb(0, 0, 0);
+}
+</style>

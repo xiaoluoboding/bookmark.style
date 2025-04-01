@@ -17,7 +17,7 @@
       >
         <div
           class="max-w-sm w-full bg-white bg-opacity-70 shadow-lg rounded-lg pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden glass"
-          dark="bg-slate-700 bg-opacity-40"
+          dark="bg-neutral-700 bg-opacity-40"
         >
           <div class="p-4">
             <div class="flex items-start">
@@ -45,20 +45,20 @@
               </div>
               <div class="ml-3 w-0 flex-1 pt-0.5">
                 <p
-                  class="text-sm font-medium text-slate-900 dark:text-slate-50 whitespace-pre-wrap"
+                  class="text-sm font-medium text-neutral-900 dark:text-neutral-50 whitespace-pre-wrap"
                 >
                   {{ notification.title }}
                 </p>
                 <p
-                  class="mt-1 text-sm text-slate-500 dark:text-slate-50 whitespace-pre-wrap"
+                  class="mt-1 text-sm text-neutral-500 dark:text-neutral-50 whitespace-pre-wrap"
                 >
                   {{ notification.description }}
                 </p>
               </div>
               <div class="ml-4 flex-shrink-0 flex">
                 <button
-                  class="bg-transparent rounded-md inline-flex text-slate-400 hover:text-slate-500 focus:outline-none"
-                  dark="hover:text-slate-300"
+                  class="bg-transparent rounded-md inline-flex text-neutral-400 hover:text-neutral-500 focus:outline-none"
+                  dark="hover:text-neutral-300"
                   @click.prevent="$emit('close', notification)"
                 >
                   <span class="sr-only">Close</span>
