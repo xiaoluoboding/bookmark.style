@@ -38,7 +38,7 @@
             <div class="flex items-center truncate">
               <img
                 v-if="metaData.logo"
-                :src="metaData.logo"
+                :src="metaData.base64Logo || metaData.logo"
                 class="inline-block align-text-bottom mr-2"
                 :class="[horizontal ? 'h-3.5 w-3.5' : 'h-4 w-4']"
                 alt="Site logo"
@@ -115,7 +115,7 @@ import type { MetaData, BookmarkProps } from '@/types/bookmark'
 const API_PREFIX_VERCEL = 'https://metafy.vercel.app/api?url='
 const API_PREFIX_NETLIFY =
   'https://get-metafy.netlify.app/.netlify/functions/api?url='
-
+const API_PREFIX_CLOUDFLARE = 'https://metafy.indiehacker.workers.dev/?url='
 const props = withDefaults(defineProps<BookmarkProps>(), {
   size: 'medium',
   corner: 'xl',
@@ -142,29 +142,19 @@ const metaData = reactive<MetaData>({
 const config = useRuntimeConfig()
 
 const apiPrefix = computed(() => {
-  return config.NODE_ENV === 'development'
-    ? API_PREFIX_NETLIFY
-    : API_PREFIX_VERCEL
+  return config.public.NODE_ENV === 'development'
+    ? API_PREFIX_CLOUDFLARE
+    : API_PREFIX_CLOUDFLARE
 })
 
 const init = async () => {
   isLoading.value = true
 
   try {
-    const { data } = (await axios.get(`${apiPrefix.value}${props.url}`)) as {
-      data: MetaData
-    }
+    const res = await axios.get(`/api/metafy?url=${props.url}`)
+    const data = res.data as MetaData
 
     if (data) {
-      let base64Image = ''
-      if (data?.image) {
-        try {
-          base64Image = await getBase64Image(data.image)
-        } catch (error) {
-          console.log(`Oops, something went wrong: Maybe caused by CORS!!!`)
-        }
-      }
-
       metaData.title = data.title
       metaData.description = data.description
       metaData.url = props.url
@@ -172,7 +162,7 @@ const init = async () => {
       metaData.logo = data.logo
       metaData.author = data.author
       metaData.publisher = data.publisher
-      metaData.base64Image = base64Image
+      metaData.base64Image = data.base64Image
     } else {
       metaData.description =
         '🪄 Turn any link into a stylish visual web bookmark, one-click to copy the beautiful web bookmark image.'

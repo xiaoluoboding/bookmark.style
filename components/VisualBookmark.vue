@@ -1,7 +1,6 @@
 <template>
-  <div class="pointer-events-none">
+  <div class="pointer-events-none" id="bookmark">
     <div
-      id="bookmark"
       class="overflow-hidden shadow-xl relative duration-200 transform-gpu transition-all ease-linear"
       :class="[
         bookmarkClass,

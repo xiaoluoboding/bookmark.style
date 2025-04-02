@@ -90,8 +90,8 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      NODE_ENV: process.env.NODE_ENV,
-      UMAMI_WEBSITE_ID: process.env.UMAMI_WEBSITE_ID
+      METAFY_API_KEY: process.env.METAFY_API_KEY,
+      NODE_ENV: process.env.NODE_ENV
     }
   },
 
